@@ -1,6 +1,6 @@
 # nucleus
 
-Admin Dashboard & Data Visualization Variant of the Nucleus Stack by Jim Mannix.
+Admin dashboard & data visualization variant of the Nucleus Stack by Jim Mannix.
 
 React full stack web application with data layers. Complete, automated, premium React site infrastructure and admin dashboard application featuring data visualization. Docker, MongoDB, Apollo, GraphQL, React Router, NGINX, Material UI, Nivo Charts, much more.
 
