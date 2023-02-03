@@ -167,6 +167,8 @@ Nucleus still lacks a number of features which are important to meet the needs o
 
 A note about integrating 3rd party services. The ability for Nucleus to be stood up quickly and with minimal configuration is a very important feature so wherever I will integrate 3rd party services such as a backend data source API or an authentication service that powers user authentication, I will always make such features switchable in a clean manner, such that default behavior will be to use an internal, pre-configured solution. External integrations are necessary and powerful options, but I will build those in as options and keep default out-of-the-box behavior to be self-contained startup with data initialization right out of the repository as much as possible. Integrating external APIs is a big deal though, which is one reason I chose Apollo server, since it is a great way to "federate" or seamlessly combine many data sources, both internal and external, into your single stack API. Apollo also converts REST APIs into GraphQL APIs automatically, so Apollo is potentially a major player in your evolved Nucleus stack project.
 
+----
+
 ## Getting Help
 
 TODO: Write this section. These bullet points are only a rough outline.
@@ -177,16 +179,18 @@ TODO: This is boilerplate verbiage to customize:
 
 If you have questions, concerns, bug reports, etc., please file an issue in this repository's Issue Tracker.
 
-## Getting involved
+----
 
-I am looking forward to hearing feedback from users so that I may better adapt this project to what developers and operators find most valuable. I will do my best to assist folks as time allows. This will help me create good documentation and improved automation which can further enable people. User-engagement is also very important for improving the smooth operation, reliability, ease of use and proper development of the stack. Also, I really appreciate it when people tell me know about great technologies I can incorporate or design patterns I can apply. I give all ideas fair consideration.
+## Getting Involved
 
-At some point Nucleus will reach a complexity level where it should be modularized further into a plug-in architecture, so that the same ease of use is maintained, while allowing complexity and diverse options to be externalized cleanly (into separate repositories and projects) and I think that complexity level is nearly here. I'm interested in the ideas people have for what kinds of plug-in capabilities they would like to see. Perhaps there will be pluggable data layers for an easy choice between an SQL/REST architecture and GraphQL. A pluggable choice between Next.js React and traditional React seems needed which would mean a different kind of frontend site/application would be in place. Another obvious pluggable choice would be the type of complete and running web application and this leads to pluggable models/schemas and pluggable dataset initialization into the data layers. These developments are coming soon and I think soon, community involvement also becomes important for Nucleus to thrive.
+I am looking forward to hearing feedback from developers, operators and users so that I may better adapt this project to what everyone finds most valuable. I will do my best to assist folks as time allows. This will help me create good documentation and improved automation which can further enable people. This community-engagement is also very important for improving the smooth operation, stability, performance, compatability, ease of use and overall quality of the stack. Also, I really appreciate it when people tell me about great technologies I can incorporate or design patterns I can apply. I like to have a lot of diverse ideas and strategies as input to my projects, because that is what drives innovation and rapid progress.
 
-I will consider working with contributors or collaborating in various ways so please feel free  to run your ideas by me but please do not share any proprietary information or business ideas you have until the context and setting may be appropriate for such communications.
+At some point Nucleus will reach a complexity level where it should be modularized further into a plug-in architecture, so that the same ease of use is maintained, while allowing complexity and diverse options to be externalized cleanly into separate repositories and projects. I think that complexity is not far off. I'm interested in the ideas people have for what kinds of plug-in capabilities they would like to see. Perhaps there will be pluggable data layers for an easy choice between an SQL/REST architecture and GraphQL. A pluggable choice between Next.js React and traditional React seems needed which would mean a different kind of frontend site/application would be in place. A pluggable choice for the type of complete and running web application leads to pluggable models/schemas and pluggable dataset initialization into the data layers, and so on. These developments are coming soon so community involvement and a good Nucleus project culture will become important for Nucleus to thrive.
 
-Thank you so much for checking out The Nucleus Stack!
+I will consider working with contributors or collaborating in various ways so please feel free to run your ideas by me but please do not share any proprietary information or business ideas you have until the context and setting may be appropriate for such. If you are a coder, frontend or backend developer or UI/UX designer working in advanced usage of the same technologies in the Nucleus Stack (or which you feel should be a part of Nucleus), then it would be good for us to touch base, for sure! Let's talk shop.
 
-Jim
+Thank you so much for your interest in The Nucleus Stack!
+
+Jim Mannix
 
 ----
