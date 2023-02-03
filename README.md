@@ -6,7 +6,7 @@ By Jim Mannix. &nbsp;&nbsp;&nbsp;Version 0.9.0, &nbsp;released 2023-02-02 &nbsp;
 
 ----
 
-#### "The Nucleus Stack" &nbsp; or &nbsp;"nucleus" &nbsp;is released under the the MIT license. &nbsp;&nbsp;&copy;2023 &nbsp;Jim Mannix
+#### "The Nucleus Stack" &nbsp; or &nbsp;"nucleus" &nbsp;is released under the MIT license. &nbsp;&nbsp;&copy;2023 &nbsp;Jim Mannix
 
 #### This is a modular, generalized, open-source full stack web application with a complete, automated Docker infrastructure and a best-in-class technology selection for both frontend and backend.
 
@@ -25,7 +25,7 @@ In this way, The Nucleus Stack serves an important need, not only for people who
 
 ## Features and Technologies
 
-Features and technologies are covered in three sections. The Platform section covers the Docker, Docker Compose, custom automation, local development mode, cloud-deployed mode and related areas. The Frontend section covers the React web application which technically "runs" in the user's web browser but is "served" by NGINX. I consider NGINX to be part of the backend since it plays a central routing role for more than just the website even if it is often thought of as being at the "front" of everything. The React application is complex enough to be all of the "Frontend" so we will talk about NGINX in the Backend section. The idea of front, back and a linear stack are just simplifications anyhow. The actual architecture is more of a graph than a stack, in fact.
+Features and technologies are covered in three sections. The **Platform** section covers the Docker, Docker Compose, custom automation, local development mode, cloud-deployed mode and related areas. The **Frontend** section covers the React web application which technically "runs" in the user's web browser but is "served" by NGINX. I consider NGINX to be part of the backend since it plays a central routing role for more than just the website even though it is often thought of as being at the "front" of everything. The React application is complex enough to be considered all of the "Frontend" so we will consider NGINX as being a **Backend** component. The idea of front, back and a linear stack are just simplifications anyhow. The actual architecture of The Nucleus Stack is more of a graph than a stack, in fact .. and not an a-cyclic graph at that, but I digress. We'll talk about graphs soon as GraphQL is at the core of the primary Nucleus architure, with an optional traditional REST/SQL flavor that goes with the Next.js React variant of Nucleus. I've jsut touched on some big features which will be detailed in subsequent docs. Anyhow, the Backend covers everything running in containers and serving the React app and the data layers. Note that different Nucleus variants such as the Next.js variant, do blur these lines between frontend and backend a little bit but we can split hairs on those details later.
 
 ### Frontend
 
@@ -33,7 +33,9 @@ Features and technologies are covered in three sections. The Platform section co
 - **React Router**
 - **Material UI** for fully-themed light/dark-switchable premium styling.
 - (**Tailwind CSS** is another great option that comes with the **Next.js** variant of Nucleus.)
+- (**Next.js** variant only: An additional **Node** container runs the **Next.js** "Frontend" services behind NGINX.)
 - **Custom GraphQL client** with loading, error and other states with friendly UI features.
+- (REST variant only: A custom REST client is used with features similar to the custom GraphQL client.)
 - Data visualization with **Nivo Charts** with complete hooks into light/dark and styling.
 - **React Guage Chart** for radial, automotive dash or instrument-style data display.
 - Coming soon: **Matplotlib, Three.js, and React Three Fiber (R3F)** for data viz and more.
@@ -52,6 +54,10 @@ Features and technologies are covered in three sections. The Platform section co
 - Custom automation everywhere, and elegantly so.
 - Custom Apollo code for MongoDB data validation, initialization and loading.
 - Automatic environment-detection and configuation in the backend.
+- (REST variant: PostgreSQL replaces MongoDB and SQL replaces GraphQL as the query language.)
+- (REST variant: Flask and Flask Restful replace Apollo. SQLAlchemy replaces Mongoose.)
+- (REST variant: The backend language is Python while for the GraphQL architecture, Javascript is the language.)
+- Future: I have plans to incorporate Redis and either Kafka or Celery but am looking for the right use case and need.
 
 ### Platform
 
@@ -81,7 +87,7 @@ Features and technologies are covered in three sections. The Platform section co
 
 - Local, for development
 - On a VM or Kubernetes cluster in the cloud
-- Logical database and admin user createion (not yet automated but will be soon)
+- Logical database and admin user creation (not yet automated but will be soon)
 - Configuration
 
 ----
@@ -118,6 +124,12 @@ TODO: This is boilerplate verbage to customize: If you have questions, concerns,
 
 ## Getting involved
 
-I would like to find some users of this software, in order to get some feedback.
+I am looking forward to hearing feedback from users so that I may better adapt this project to what developers and operators find most valuable. I will do my best to assist folks which will help me create good documentation and improved automation and generally improve the operation and ease of use and development of the stack. People also let me know about great technologies or design patterns I can incorporate, which I really appreciate.
 
-I will consider working with contributors if you want to run your thoughts by me.
+I will consider working with contributors or collaborating in various ways so please feel free  to run your ideas by me but please do not share any proprietary or business ideas you have until the context may be appropriate for such communications.
+
+Thank you so much for checking out The Nucleus Stack!
+
+-- Jim
+
+----
