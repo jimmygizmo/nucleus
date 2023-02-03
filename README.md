@@ -10,11 +10,17 @@ By Jim Mannix. &nbsp;&nbsp;&nbsp;Version 0.9.0, &nbsp;released 2023-02-02 &nbsp;
 
 #### This is a modular, generalized, open-source full stack web application with a complete, automated Docker infrastructure and a best-in-class technology selection for both frontend and backend.
 
+#### The Nucleus frontend React application is rich with the best modern data-integrated features and components. It is a beautiful, responsive frontend using all the best and latest design strategies, the incredible power of Material UI, Nivo data visualization and much more.
+
+#### Nucleus is enterprise-grade intrastructure and premium UI streamlined into the developer's laptop, so it can be shaped into the next killer app with minimal effort. The Nucleus stack is cloud-ready from the ground up, so it is one of the fastest ways to develop and release a top-quality application at any scale.
+
 ----
 
 There are a lot of code snippets and partial solutions out there and some of that is even really good, but there is a serious shortage of high quality, full-featured, industrial-strength, open-source web application and stack templates which are ready to run and ready to customize from a near feature-complete state. I really don't call Nucleus an application template because it is very complete and ready to run both locally and deployed to the cloud. It is so complete as to even automatically populate its own test/mock data. Very few manual steps are required to get Nucleus running. The specific app is a very nice admin dashboard application, loaded with data visualization and great general purpose web app features, many provided by Material UI components. Isn't a complete and running stack and application more useful than part of one? I think so.
 
-In this way, The Nucleus Stack serves an important need, not only for people who want to get a good web app running as fast as possible, but also for people who are learning and developing different parts of such a stack and need to work with the technology in a complete context, with good data already in place. The Nucleus Stack meets those and many other needs. It is as flexible as it is robust and uses the latest and greatest libraries, services, design patterns and strategies for 2023. I hope you find it valuable to your projects and your learning adventure.
+Nucleus runs completely and perfectly on the developer's local machine and with full data with almost no manual setup. This exact same code and stack then deploys to the cloud with all configuration done automatically and all data persisted as desired, where desired. The very best development and operations require this kind of streamlinging and the benefits are profound in terms of application quality, data integrity and rapid feature development.
+
+In this way, The Nucleus Stack serves an important need, not only for people who want to get a premium, high-performance web app running as fast as possible, but also for people who are learning and developing different parts of such a stack and need to work with the technology in a complete context, with good data already in place. The Nucleus Stack meets those and many other needs. It is as flexible as it is robust and uses the latest and greatest libraries, services, design patterns and strategies for 2023. I hope you find it valuable to your projects and your learning adventure.
 
 >
 > In the near future, the live demo of the current release will be running at the following URL:
@@ -25,7 +31,7 @@ In this way, The Nucleus Stack serves an important need, not only for people who
 
 ## Features and Technologies
 
-Features and technologies are covered in three sections. The **Platform** section covers the Docker, Docker Compose, custom automation, local development mode, cloud-deployed mode and related areas. The **Frontend** section covers the React web application which technically "runs" in the user's web browser but is "served" by NGINX. I consider NGINX to be part of the backend since it plays a central routing role for more than just the website even though it is often thought of as being at the "front" of everything. The React application is complex enough to be considered all of the "Frontend" so we will consider NGINX as being a **Backend** component. The idea of front, back and a linear stack are just simplifications anyhow. The actual architecture of The Nucleus Stack is more of a graph than a stack, in fact .. and not an a-cyclic graph at that, but I digress. We'll talk about graphs soon as GraphQL is at the core of the primary Nucleus architure, with an optional traditional REST/SQL flavor that goes with the Next.js React variant of Nucleus. I've jsut touched on some big features which will be detailed in subsequent docs. Anyhow, the Backend covers everything running in containers and serving the React app and the data layers. Note that different Nucleus variants such as the Next.js variant, do blur these lines between frontend and backend a little bit but we can split hairs on those details later.
+Features and technologies are covered in three sections. The **Platform** section covers the Docker, Docker Compose, custom automation, local development mode, cloud-deployed mode and related areas. The **Frontend** section covers the React web application which technically "runs" in the user's web browser but is "served" by NGINX. I consider NGINX to be part of the backend since it plays a central routing role for more than just the website even though it is often thought of as being at the "front" of everything. The React application is complex enough to be considered all of the "Frontend" so we will consider NGINX as being a **Backend** component. The idea of front, back and a linear stack are just simplifications anyhow. The actual architecture of The Nucleus Stack is more of a graph than a stack, in fact .. and not an a-cyclic graph at that, but I digress. We'll talk about graphs soon as GraphQL is at the core of the primary Nucleus architure, with an optional traditional REST/SQL flavor that goes with the Next.js React variant of Nucleus. I've just touched on some big features which will be detailed in subsequent docs. Anyhow, the Backend covers everything running in containers and serving the React app and the data layers. Note that different Nucleus variants such as the Next.js variant, do blur these lines between frontend and backend a little bit but we can split hairs on those details later.
 
 ### Frontend
 
@@ -71,7 +77,8 @@ Features and technologies are covered in three sections. The **Platform** sectio
 - Dockerfiles are carefully crafted and quite optimized.
 - A virtual Node container only exists during the React build then efficently vanishes.
 - The best, most secure and smallest base images are used whenever possible.
-- The stack startup sequence is carefully orchestrated with port checks and smart timeouts.
+- The stack startup sequence is smartly orchestrated with both port checks and timeouts.
+- Future: Utility/ops/dev/data tools and further automation may be included in additional containers.
 
 ----
 
@@ -112,7 +119,16 @@ Features and technologies are covered in three sections. The **Platform** sectio
 
 ## Known Issues, Future Roadmap
 
-TODO: Section needed.
+Nucleus still lacks a number of features which are important to meet the needs of most people who are interested in working with such a stack. The following areas are listed roughly in the planned order of implementation:
+
+- User login and profiles
+- User Authentication. Stack-resident will be default but 3rd party integration will be supported.
+- External API federation under Apollo. I may integrate an informational external API or provide a few pre-configurations for such, since this has massive potential for your possible applications of Nucleus.
+- Site search is only a box holding a position in the UI at the moment
+- There are no known bugs or problems in the features which are currently integrated in the release version. Partial or buggy functionality will be kept in development branches and out of the releases as much as possible.
+- The user profile, alerts and settings icons are only placeholders in the UI at the moment and will be wired into the user login/profile features when those are added.
+
+A note about integrating 3rd party services. The ability for Nucleus to be stood up quickly and with minimal configuration is a very important feature so wherever I will integrate 3rd party services such as a backend data source API or an authentication service that powers user authentication, I will always make such features switchable in a clean manner, such that default behavior will be to use an internal, pre-configured solution. External integrations are necessary and powerful options, but I will build those in as options and keep default out-of-the-box behavior to be self-contained startup with data initializtion right out of the repository as much as possible. Integrating external APIs is a big deal though, which is one reason I chose Apollo server, since it is a great way to "federate" or seamlessly combine many data sources, both internal and external, into your single stack API. Apollo also converts REST APIs into GraphQL APIs automatically, so Apollo is potentially a major player in your evolved Nucleus stack project.
 
 ## Getting Help
 
