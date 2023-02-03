@@ -31,7 +31,7 @@ In this way, The Nucleus Stack serves an important need, not only for people who
 
 ## Features and Technologies
 
-Features and technologies are covered in three sections. The **Platform** section covers the Docker, Docker Compose, custom automation, local development mode, cloud-deployed mode and related areas. The **Frontend** section covers the React web application which technically "runs" in the user's web browser but is "served" by NGINX. I consider NGINX to be part of the backend since it plays a central routing role for more than just the website even though it is often thought of as being at the "front" of everything. The React application is complex enough to be considered all of the "Frontend" so we will consider NGINX as being a **Backend** component. The idea of front, back and a linear stack are just simplifications anyhow. The actual architecture of The Nucleus Stack is more of a graph than a stack, in fact .. and not an a-cyclic graph at that, but I digress. We'll talk about graphs soon as GraphQL is at the core of the primary Nucleus architecture, with an optional traditional REST/SQL flavor that goes with the Next.js React variant of Nucleus. I've just touched on some big features which will be detailed in subsequent docs. Anyhow, the Backend covers everything running in containers and serving the React app and the data layers. Note that different Nucleus variants such as the Next.js variant, do blur these lines between frontend and backend a little, but we can split hairs on those details later.
+Features and technologies are covered in three sections. The **Platform** section covers the Docker, Docker Compose, custom automation, local development mode, cloud-deployed mode and related areas. The **Frontend** section covers the React web application which technically "runs" in the user's web browser but is "served" by NGINX. I consider NGINX to be part of the backend since it plays a central routing role for more than just the website even though it is often thought of as being at the "front" of everything. The React application is complex enough to be considered all of the "Frontend" so we will consider NGINX as being a **Backend** component. The idea of front, back and a linear stack are just simplifications anyhow. The actual architecture of The Nucleus Stack is more of a graph than a stack, in fact .. and not an a-cyclic graph at that, but I digress. We'll talk about graphs soon as GraphQL is at the core of the primary Nucleus architecture, with an optional traditional REST/SQL flavor that goes with the Next.js React variant of Nucleus. I've just touched on some big features which will be detailed in subsequent docs. Anyhow, the **Backend** covers everything running in containers and serving the React app and the data layers. Note that different Nucleus variants such as the Next.js variant, do blur these lines between frontend and backend a little, but we can split hairs on those details later.
 
 ### Frontend
 
@@ -50,20 +50,24 @@ Features and technologies are covered in three sections. The **Platform** sectio
 - **MUI DataGrids** populated with quality data via GQL and the stack's data layers.
 - **Quality Test/Mock** data from Kaggle etc, automatically initialized.
 - Automatic environment-detection and configuration in the frontend.
+- Best-practice browser address bar behavior: HTTPS redirects, SSL Security, bare-domain/www redirects. (backend)
+- SEO is maximized everywhere possible.
+- For a huge SEO boost, if your application/site goals allow it, use the Next.js variant of Nucleus.
 
 ### Backend
 
 - **NGINX** with a powerful configuration of redirects, api proxy-pass, caching and more.
+- **A-Plus SSL Security Rating** achievable with this NGINX configuration and the provided instructions.
 - **Apollo GraphQL Server**
 - **Mongoose ODM** (Object-Data Modeling library with db drivers) Provides schemas, models.
 - **MongoDB**
 - Custom automation everywhere, and elegantly so.
 - Custom Apollo code for MongoDB data validation, initialization and loading.
-- Automatic environment-detection and configuation in the backend.
+- Automatic environment-detection and configuration in the backend.
 - (REST variant: PostgreSQL replaces MongoDB and SQL replaces GraphQL as the query language.)
 - (REST variant: Flask and Flask Restful replace Apollo. SQLAlchemy replaces Mongoose.)
 - (REST variant: The backend language is Python while for the GraphQL architecture, Javascript is the language.)
-- Future: I have plans to incorporate Redis and either Kafka or Celery but am looking for the right use case and need.
+- Future: I have plans to incorporate Redis and either Kafka or Celery, but I am looking for the right use case and architectural/computational/data-flow and performance optimization needs to justify this move.
 
 ### Platform
 
