@@ -17,14 +17,23 @@ services:
 #   use a system of comments to make the needed steps clear. The issue is that we don't want to store a
 #   full repo URL with its sensitive IDs in it inside our code repo for the stack, but we do need to refer
 #   to image names that like to use those full URLs for cloud deployment at least in our production
-#   docker-compose.production.yml file, but at least in our development docker-compose.yml file (this one)
+#   docker-compose.production.yml file. In our development docker-compose.yml file (this one)
 #   we don't need those full URLs for image names, HOWEVER, here is the current sticking point: our
 #   automation currently is set up to have those URL-laden image names hardcoded.
-#   A solution is needed, otherwise this means a bit more manual configuration or that one of our automation
-#   scripts will not work out of the box without configuration. It might be time for some template parsing
+#   A solution is needed, otherwise this means a bit more manual docker compose configuration or that one
+#   of our automation scripts will need extra configuration. It might be time for some template parsing
 #   steps which will prepare things like our automation scripts and/or docker-compose.yml files, etc.
-#   I'd like to use really basic tools for that but it will depend on how I want to execute such that
-#   kind of a parsing, config-generation step, which we currently don't have.
+#   I'd like to use really basic tools for that but it will depend on how I want to execute that
+#   kind of a templated/parsing config-generation step, which we currently don't have.
+#   UPDATE: The stack needs and will benefit from a clean template system for configuration and automation,
+#   because of needs like the one described above and many other needs. Our NGINX configuration really needs
+#   some templated processing at this point. There are actually already many places, so I will make it a side
+#   project no to come up with a robust solution. The goal is to use tools that are available with basic a shell,
+#   because many of these needs are in places and phases where no installations have yet
+#   taken place, or at least it would be good to keep things like that. We'll see how the analysis of this need goes.
+#   There is usually a bash or at least an sh shell available, with commands like SED and AWK which could be used.
+#   When working with cutting-edge technologies, never overlook the old tried and true os-level tools and methods
+#   as they remain incredibly powerful and are often under-utilized in the midst of a lot of of bleeding-edge tech.
 
   # ---- MONGO ----
   nucleus-mongo:

@@ -1,0 +1,78 @@
+
+----------------------------------------------------------------------------------------------------------------------
+The Nucleus Stack - Mock/Test Data from Kaggle, Government Agencies and Educational Institutions
+----------------------------------------------------------------------------------------------------------------------
+
+---- DATA SOURCES - GOOD ONES
+I try to use the best data I can find for mock/test purposes, and then I treat it in a best-practice manner.
+Most data sources I consider have already been cleaned and well formatted and are highly rated by the community
+or somewhat well known, so in most cases I do not need to clean data.
+
+---- TO CLEAN OR NOT TO CLEAN AND HOW
+In the more rare cases where I need to clean data I may remove obviously partial data. I will reformat any data
+for processing and presentation reasons, but I will never remove or alter the "information" in that data or
+change its nature relative to the original data set in any way. This is the standard/methodology I have set
+for how I use data in this project. You can define data treatment any way you like, but it is helpful to use
+"good" data sources and "treat" the data properly and define and document your data sources and all processing
+you do to your data. You will get better results and you and your apps and data will have more credibility
+and perform better overall.
+
+---- OUTLIERS - ISOLATE BUT KEEP THEM
+In datasets which are a little less clean, there may be "outliers". Outliers are records/docs that have data points
+that don't make a lot of rational sense in the context in which you are interpreting, rendering, charting
+or using that data in some way. It could be a crazy spike on a graph that everyone realizes would be impossible
+in reality. It could be a point in a point cloud that is so far out by itself that it needs to be considered
+as either some other phenomenon to be analyzed separately or just bad/corrupt data or some bad processing
+artifact or by-product. You have to use your human intelligence about these things. It is usually obvious where
+you need to remove outliers, HOWEVER, always realize this: In some datasets, under some conditions, your
+OUTLIERS are really the most important aspect of your dataset in some important context, even the one you
+have in front of you. So you can clean outliers for specific well-understood interpretational contexts, but
+don't just toss them in the trash. You might be throwing out the baby with the bathwater. Set your outliers
+aside and keep the appropriate notes with them about your criteria for isolating them. This also keeps a
+record of how you have altered the overall context and shape of the dataset. It is often ok to alter things in
+this way, but don't do it without documenting it and even in some cases, I think it is wise to keep those
+outlier records/datum around or at least their IDs which can help reconstruct altered data, so you thereby
+retain a "known" condition of all of your data and its full history.
+
+
+----------------------------------------------------------------------------------------------------------------------
+DATA SOURCES USED IN NUCLEUS
+
+----------------------------------------------------------------------------------------------------------------------
+
+Light-Duty Vehicles Produced in the United States 1975 - 2019
+
+FILE:
+/apollo/initdata/dataVehicleTypesByYears.js
+
+https://afdc.energy.gov/data/10314
+Trend in numbers and types.
+In 2009 overall production was severely impacted by the economic recession.
+In 2017 SUVs exceeded cars for the first time and has since.
+103 records.
+
+TREATMENT: Data was reformatted but not cleaned or altered as it comes from this source in good condition.
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+Electric Vehicles Available for Sale New, Eastern Europe (Poland), 2020.
+
+This dataset contains a lot of vehicles available in the US and worldwide, so I think it works fine as a set of
+nearly all electric vehicles available for purchase new in 2020. If I can find a good US dataset like this I will
+add that as a separate collection. I am on the lookout for a respectable/known worldwide dataset for EVs as well.
+The current dataset seems to have some good performance and feature information, and I am thinking of charting
+the acceleration against other factors like price, efficiency and range. This could be an interesting view of
+this data. Perhaps some point cloud charts might also be interesting for this data.
+
+FILE:
+/apollo/initdata/dataVehiclesElectricEU.js
+
+SOURCE: Kaggle
+TODO: Complete the source information here.
+
+TREATMENT: Data was reformatted but not cleaned or altered as it comes from this source in good condition.
+
+
+----------------------------------------------------------------------------------------------------------------------
+

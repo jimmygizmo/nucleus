@@ -3,11 +3,21 @@
 # Use this script to test if a given TCP host/port are available before starting a downstream client process.
 # https://github.com/vishnubob/wait-for-it
 # wait-for-it.sh is licensed under the MIT license like Nucleus is. This code has been modified from the original.
-# The MIT License for the original wait-for-it.sh is included at the end of this file.
+# The MIT License and copyright for the original wait-for-it.sh is included at the end of this file.
 
 # IMPORTANT! For use with docker-compose which maps ports OUTSIDE:INSIDE. Point wait-for-it.sh At INSIDE port.
 # EXAMPLE: You map port 80 inside the container to 44480 outside for your stack to use. wait-for-it.sh must
 # target the inside port 80.
+# TODO: Test to confirm and clarify the reason for this: Compose may not make the mapped external port available
+#   soon enough, noting that connections have to route outside the docker compose container network and then back
+#   in, while for internal ports, only the docker compose internal network need be traversed. This could be the
+#   reason for a race condition I observed in which the external port could not be targeted by wait-for-it.sh,
+#   even though one would expect it could be. I think the external port mapping may not have completed
+#   yet at the time the dependent wait-for-it.sh of the downstream container starts checking. It would be good
+#   to confirm this theory and document it concisely with a more accurate explanation. I was surprised and
+#   stumped for a while by this issue, so I think others may naturally assume they should probe the external
+#   port, but this will not work. ** Only ever probe the internal port as that is all that will ever be
+#   available at that point of the Docker Compose startup.
 
 WAITFORIT_cmdname=${0##*/}
 

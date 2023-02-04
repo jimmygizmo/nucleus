@@ -45,5 +45,7 @@ RUN date > /app/datavolume/test-file-created-by-apollo-Dockerfile.txt
 EXPOSE 44000
 
 # Disabled because now this will be started by Docker Compose via the wait-for-it.sh script.
+# TODO: There is at least one other Dockerfile this comment would be good to add to (NGINX) and maybe others:
+# See the docker compose files for the full wait-for-it.sh commands and entry-point arguments.
 #CMD ["node", "index.js"]
 
