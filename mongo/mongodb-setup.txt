@@ -1,0 +1,93 @@
+Nucleus Stack - MongoDB initial creation of logical database, admin user, admin password
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+TODO: Add link to docker/docker-compose exec shell info
+
+--------
+1. Bring the stack up. MongoDb should stay up by Apollo and NIGINX might not stay up until we so a few steps
+with the DB. These are some of the only manual setup/config steps we need to make and it only needs to be done
+the first time a database is instantiated. Your database data files stay persisted across runs inside
+the /datavolume directory. But to get started we need to create the logical database, a user and a password.
+
+
+--------
+2. User docker-compose to get a bash shell inside the running mongo container.
+This assumes you have the stack or at least the mongo container running:
+docker-compose exec -it nucleus-mongo bash
+
+
+--------
+3. Launch the "mongosh" client which is available now in the mongo container bash shell:
+mongosh
+
+
+--------
+3. "Use" what will be the new logical database.
+use nucleusdb
+
+We have not yet created anything yet though. We need to make a user for this new logical database to stick around.
+
+
+--------
+4. Create the admin user.
+
+** Yes we are storing these credentials here in the repository. These credentials
+only get used inside the docker compose internet network and the MongoDB port is never mapped outside of that
+network so this is not a security concern and can probably remain like this in most applications. Higher security
+is only needed in the communications that move outside of the cloud VPC and onto the Internet. These credentials
+are fine to store in the repository and even to transmit in the clear within the DOcker Compose network, between
+containers.
+
+Create the user and password, thus making the new logical database "nucleusdb" persist beyond the current session.
+Of course, you are free to change these, but you will need to change them in the Apollo configuration or
+general stack configuration as well.
+
+nucleusdb> db.createUser(
+... {  user: "nucleusdbuser",
+...     pwd: "nucleusdbpass",
+... 	roles:[{role: "userAdminAnyDatabase" , db:"admin"}]
+... })
+{ ok: 1 }
+
+
+--------
+5. Show the new user to verify:
+
+nucleusdb> show users
+[
+  {
+    _id: 'nucleusdb.nucleusdbuser',
+    userId: new UUID("9ac92d2f-5ede-4df8-923d-06cf26f3a0c0"),
+    user: 'nucleusdbuser',
+    db: 'nucleusdb',
+    roles: [ { role: 'userAdminAnyDatabase', db: 'admin' } ],
+    mechanisms: [ 'SCRAM-SHA-1', 'SCRAM-SHA-256' ]
+  }
+]
+nucleusdb>
+
+
+--------
+6. The logical database should now persist because you created something on it (the admin user).
+Now if you "show dbs", you should see "nucleusdb" listed.
+
+Because we are mapping the MongoDB data directory (/data/db inside the container) to a local directory
+of /dbvolume or a VM directory of /data/datavolume, our new logical database and our new user and any other
+data we create, will be preserved across all stops and starts of the stack.
+
+--------
+
+* NOTE: Now Apollo will be able to start up and connect to this new database. What it will do immediately upon
+first connecting is it will create all the collections needed for your test/mock data and it will populate those
+collections.
+
+** NOTE ALSO: Every time Apollo starts, it checks for the existence of the test/mock collections and if any which
+are missing are re-created. If you delete one, it will be back the next time Apollo starts, which is a really nice
+feature for data like this. This is one of the features that makes The Nucleus Stack so friendly to developers.
+
+TODO: Apollo currently only checks for the existence of mock collections. Make it also check for the document
+count to match a known value and if it does not, re-create that entire mock collection. This is a simple step which
+reinforces the use of the mock/test data for more rigorous testing and helps that data serve its purpose in other
+contexts or even so you can be more sure of giving good demos using that mock data.
+
+--------

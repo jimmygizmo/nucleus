@@ -1,0 +1,54 @@
+version: '3'
+
+networks:
+  nucleus-network:
+
+volumes:
+  dbvolume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./dbvolume
+
+services:
+
+# TODO: Must abstract the Docker Image Name which has the full REPO URL -OUT- of the code somehow or
+#   use a system of comments to make the needed steps clear. The issue is that we don't want to store a
+#   full repo URL with its sensitive IDs in it inside our code repo for the stack, but we do need to refer
+#   to image names that like to use those full URLs for cloud deployment at least in our production
+#   docker-compose.production.yml file, but at least in our development docker-compose.yml file (this one)
+#   we don't need those full URLs for image names, HOWEVER, here is the current sticking point: our
+#   automation currently is set up to have those URL-laden image names hardcoded.
+#   A solution is needed, otherwise this means a bit more manual configuration or that one of our automation
+#   scripts will not work out of the box without configuration. It might be time for some template parsing
+#   steps which will prepare things like our automation scripts and/or docker-compose.yml files, etc.
+#   I'd like to use really basic tools for that but it will depend on how I want to execute such that
+#   kind of a parsing, config-generation step, which we currently don't have.
+
+  # ---- MONGO ----
+  nucleus-mongo:
+    container_name: nucleus-mongo
+    build: ./mongo
+#    SETUP: To use a full repository URL image name, customize a URL like the one here:
+#    image: <YOUR-AWS-USER-ID-NUMBER>.dkr.ecr.us-west-2.amazonaws.com/<YOUR-AWS-REPO-NAME>:nucleus-mongo
+    image: nucleus-mongo
+    networks:
+      - nucleus-network
+    environment:
+      - MONGODB_INITDB_ROOT_USERNAME="automongo"
+      - MONGODB_INITDB_ROOT_PASSWORD="automongo"
+    #      - MONGODB_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo-root-pw
+    ports:
+      - "44017:27017"
+    volumes:
+      - dbvolume:/data/db
+    # CONSIDER FOR nucleus-mongo CONTAINER:
+    #    healthcheck:
+    #      test: echo 'db.runCommand("ping").ok' | mongo 10.10.10.60:27017/test --quiet
+    #      interval: 30s
+    #      timeout: 10s
+    #      retries: 3
+    # CONSIDER FOR ALL CONTAINERS:
+    #    restart: unless-stopped
+

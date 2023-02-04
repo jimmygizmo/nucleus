@@ -1,0 +1,9 @@
+This "buildinfo" file is simply copied into the container.
+Later this file will contain a build ID so each container has this ID within it.
+* Take care that this is done in the last layer so it does not unintentionally invalidate
+  any cached layers, because this will change on every build.
+* Generating the build ID and copying into the file and into this build must be done as the
+  last command in the Dockerfile. (or as close to the last as possible.)
+
+TODO: Confirm this theory and the info in this doc. Add the step to create the ID in this file.
+
