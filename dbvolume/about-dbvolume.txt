@@ -1,0 +1,28 @@
+Nucleus /dbvolume/ directory
+============================
+
+This /dbvolume/ directory is here as a placeholder and will be used to store MongoDB data for persistence
+and isolation from the application itself.
+
+This about file (/dbvolume/about-dbvolume.txt) is present so git will store this placeholder directory
+because git will not store an empty directory. It is good to have such a directory in place in the
+project repository for clarity, simplicity of setup, code simplicity and other benefits.
+
+PLEASE NOTE:
+The .gitignore file in the root of this project has important entries in place so that this about file
+and the directory itself are stored in the repository,
+but nothing else inside the directory will be added to git.
+
+This /dbvolume/ directory is intended to only hold runtime data, specifically the MongoDB
+database data files of the local running instance, whether it is your development instance on your laptop
+or your cloud VM instance, where you will mount this directory to some kind of backed-up, persistent volume,
+so that if your VM goes away or in whatever scenario, your database and all your application data,
+will remain in place and in good condition. This kind of local instance filesystem persistence in the
+current standalone Nucleus architecture is a key feature.
+
+The /dbvolume/ directory is very similar, but is for your critical MongoDB database data files, which need
+the same kind of local instance filesystem persistence in the current standalone Nucleus architecture.
+
+The /datavolume/ directory is very similar, but is for general data sharing across containers as well as
+the same kind of local persistence.
+

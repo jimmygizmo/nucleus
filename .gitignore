@@ -1,15 +1,79 @@
 # .gitignore file for The Nucleus Stack
 
 
+
+# For the following handful of about files, we keep the directory and the about file in place,
+# but ignore everything else. It is the about file itself that causes git to store the directory.
+# Git will not store an empty directory by itself. All of the following directories we do want to
+# be kept in the repository, but we don't want any of their other contents to ever be added to the repo.
+# Some of those contents are sensitive and must not be added to any code repository and some of
+# those contents are build output, which must be kept from being polluting the repository accidentally.
+
+# datavolume and dbvolume
+dbvolume/*
+!dbvolume/about-dbvolume.txt
+datavolume/*
+!datavolume/about-datavolume.txt
+
+# /nginx/www/ target of combined /xwww/ content and /.next/ build output
+nginx/www/*
+!nginx/www/about-nginx-www.txt
+# /nginx/nodesrc the destination of the React build output copied by prep script. Builds at start of NGINX Dockerfile.
+nginx/nodesrc/*
+!nginx/nodesrc/about-nodesrc.txt
+
+# SSL:/TLS Certificates and Other Secrets
+secrets/*
+!secrets/about-secrets.txt
+
+# SSL:/TLS Certificates - Build location
+nginx/certs/*
+!nginx/certs/about-nginx-certs.txt
+
+
+# /node/
+#node/*
+#!node/about-node.txt
+#!node/node-notes.txt
+#!node/Dockerfile
+
+
+# /apollo/
+# apollo/node_modules is covered by a general node_modules entry below
+
+
+# MacOS
+.DS_Store
+
+
 # IntelliJ IDE settings directory. You almost never want your IDE settings in the repository unless
 # you have a very specific need like some helpful settings for an entire team to use and then,
 # you need to account for the same directory being generated and modified by team members.
 # Almost everyone simply excludes all IDE settings files and directories in all cases.
 .idea/
 
+
 # Directory to briefly hold working files inside the project but not add them to git.
 # * Tell your IDE to exclude/ignore this directory to reduce indexing & inspection overhead.
 todo/
+
+
+# TODO: Move most of this info to documentation and keep just a short version of it next to the entry.
+# Build version file created at build+deploy time by auto script
+# <OBFUSCATED-PATH> would be like a very low-security password concept where you have a directory on your
+# site that is accessible to anyone, but is hidden by not being linked to and having a name that is difficult
+# to see, remember, guess etc. Don't keep sensitive information in such an "obfuscated" directory.
+# I use it to keep a list of links to protoype pages/sections of a site.
+# It's also where I output the build a global build identifier so I can easily veryfy the build identity of an
+# running instance. You need to be able to do that. But there is no need for fuch a file to be easily accessible,
+# but simply obfuscating the path seems like the right thing to do. Then you have the option to do some other
+# things inside such a directory. Maybe this is where you would put the initial login portal for some administrative
+# functions that your dont want handled by your main public application login portal.
+# Here are some ideas: 1l1lO0O0, 0o1l0ol, O0O0, 11ll11ll
+# Patterns like this work to keep the directory open and accessible, but not easily glimpsed and remembered
+# or guessed, which is a nice way to keep it as a semi-private, yet convenient, accessible directory/path.
+#
+#**/<OBFUSCTED-PATH>/version.txt
 
 
 # Logs
@@ -116,3 +180,4 @@ dist
 
 # TernJS port file
 .tern-port
+
