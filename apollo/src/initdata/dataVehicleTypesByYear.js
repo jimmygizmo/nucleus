@@ -1,31 +1,11 @@
-// dataVehicleTypesByYears.js
-//
-// ON NAMING: The plural form with an "s" on the end is used for the symbol parts of "Types" as well as "Years"
-// in this context because this is data, so both things are multiple and not singular. However, in other contexts,
-// such as in the Schema or Model for this same data, only the symbol part of "Types" is multiple in that context,
-// So in that context, "Year" is singular, because even though "Year" is a data field like the vehicle types,
-// it is the index or the axis by which that
-// data is interpreted and when the data is populated and interpreted, the context then becomes multiple Years.
-// I think it is very important to be clear and intentional in the use or the lack of use of pluralization when
-// naming EACH part of a symbol system. This should be part of an intelligent set of Naming Conventions used by
-// yourself, your team and your projects/code. Be intentional about your naming everywhere. Another important rule,
-// I USUALLY (but not always) follow is to use place the symbol which goes closer to the root in a hierarchy of
-// concepts or categories of "things" in that context, FIRST or closer to the LEFT/FRONT of the full symbolic name
-// or identifier. This is why I use "VehiclesElectric" or "VehicleElectric" and not the more typical "ElectricVehicles".
-// These symbolic names are important the creation and operation of software all those areas of concerns and are
-// much less important for following patterns of human speech or thought. Consistency and having an intentional,
-// context-appropriate system are very important for naming all the things in your software. When you are presenting
-// to the user in the UI, then you can use human-friendly wording in the text and labels. In the software and code
-// I think the need is different. Please note in particular how I use plurality in different areas of the code base
-// and in the naming of files and directories within the project.
-
+// dataVehicleTypesByYear.js
 
 // https://afdc.energy.gov/data/10314
 // Light-Duty Vehicles Produced in the United States 1975 - 2019
 // Trend in numbers and types.
 // In 2009 overall production was severely impacted by the economic recession.
 // In 2017 SUVs exceeded cars for the first time and has since.
-// 103 records.
+// 45 records.
 
 
 const jsonChunk = `
@@ -393,5 +373,5 @@ const jsonChunk = `
 ]
 `;
 
-export const dataVehicleTypesByYears = JSON.parse(jsonChunk);
+export const dataVehicleTypesByYear = JSON.parse(jsonChunk);
 

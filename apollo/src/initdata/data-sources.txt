@@ -43,13 +43,13 @@ DATA SOURCES USED IN NUCLEUS
 Light-Duty Vehicles Produced in the United States 1975 - 2019
 
 FILE:
-/apollo/initdata/dataVehicleTypesByYears.js
+/apollo/initdata/dataVehicleTypesByYear.js
 
 https://afdc.energy.gov/data/10314
 Trend in numbers and types.
 In 2009 overall production was severely impacted by the economic recession.
 In 2017 SUVs exceeded cars for the first time and has since.
-103 records.
+45 records.
 
 TREATMENT: Data was reformatted but not cleaned or altered as it comes from this source in good condition.
 
@@ -58,20 +58,30 @@ TREATMENT: Data was reformatted but not cleaned or altered as it comes from this
 
 Electric Vehicles Available for Sale New, Eastern Europe (Poland), 2020.
 
+FILE:
+/apollo/initdata/dataVehiclesElectricEU.js
+
+
+
+https://www.kaggle.com/datasets/dhamur/cars-data
+Cars-Conventional engine and EVs
+  "The dataset includes cars that, as of December 2nd, 2020, could be purchased in Poland as new at
+   an authorized dealer and those available in public and general presale, but only if a publicly
+   available price list with equipment versions and full technical parameters was available."
+
+Kaggle marks this dataset as being in the Public Domain with no restrictions or requirements on usage. (CC0)
+https://creativecommons.org/publicdomain/zero/1.0/
+103 records.
+
+TREATMENT: Data was reformatted but not cleaned or altered as it comes from this source in good condition.
+
+TODO: Trim back or eliminate or relocate these related comments:
 This dataset contains a lot of vehicles available in the US and worldwide, so I think it works fine as a set of
 nearly all electric vehicles available for purchase new in 2020. If I can find a good US dataset like this I will
 add that as a separate collection. I am on the lookout for a respectable/known worldwide dataset for EVs as well.
 The current dataset seems to have some good performance and feature information, and I am thinking of charting
 the acceleration against other factors like price, efficiency and range. This could be an interesting view of
 this data. Perhaps some point cloud charts might also be interesting for this data.
-
-FILE:
-/apollo/initdata/dataVehiclesElectricEU.js
-
-SOURCE: Kaggle
-TODO: Complete the source information here.
-
-TREATMENT: Data was reformatted but not cleaned or altered as it comes from this source in good condition.
 
 
 ----------------------------------------------------------------------------------------------------------------------

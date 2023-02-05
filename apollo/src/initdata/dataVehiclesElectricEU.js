@@ -1,5 +1,15 @@
 // dataVehiclesElectricEU.js
 
+// https://www.kaggle.com/datasets/dhamur/cars-data
+// Cars-Conventional engine and EVs
+//   "The dataset includes cars that, as of December 2nd, 2020, could be purchased in Poland as new at
+//    an authorized dealer and those available in public and general presale, but only if a publicly
+//    available price list with equipment versions and full technical parameters was available."
+//
+// Kaggle marks this dataset as being in the Public Domain with no restrictions or requirements on usage. (CC0)
+// https://creativecommons.org/publicdomain/zero/1.0/
+// 103 records.
+
 
 const jsonChunk = `
 [
