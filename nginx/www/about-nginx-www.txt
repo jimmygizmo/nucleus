@@ -1,0 +1,9 @@
+TODO: Update this about file which is a little outdated and is a little specific to the Next.js variant of Nucleus.
+
+This directory remains in the repo and remains empty until copy commands (kept in the /auto/ dir) combine
+the React.js/Next.js build output from /nucleus/.next/ with web content maintained separately in the directory /xwww/
+This about-www.txt file also serves to keep the /www/ directory in the repo. Git does not hold empty dirs.
+The .gitignore file will ignore everything inside the /nginx/www/ directory except for this file.
+In this way, containers can be built with changing content during development from either /.next/ or /xwww/ or
+both and none of the build output will interfere with the repo.
+

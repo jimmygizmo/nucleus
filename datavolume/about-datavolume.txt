@@ -16,21 +16,9 @@ but nothing else inside the directory will be added to git.
 This /datavolume/ directory is intended to only hold temporary runtime data, specifically general purpose data
 of the local running instance, whether it is your development instance on your laptop
 or your cloud VM instance, where you will mount this directory to some kind of backed-up, persistent volume,
-so that if your VM goes away or in whatever scenario, your general application runtime/instance and
+so that if your VM goes away or in whatever scenario, your general application runtime/instance data and
 cross-container-shared data will remain in place and in good condition.
 
 The /dbvolume/ directory is very similar, but is for your critical MongoDB database data files, which need
 the same kind of local instance filesystem persistence in the current standalone Nucleus architecture.
-
-
-
-
-
-TODO: rewrite all of this and the about file in /dbvolume
-
-This 'datavolume' directory is here as a placeholder and will be used by all running containers as a shared data volume.
-The main goal is to persist data, but a secondary purpose is to allow filesystem data sharing between running
-containers, specifically in the context
-of Docker Compose, but Kubernetes and GCP can support the same concept and the app and configuration may need little
-or no change to adapt to either context when running.
 
