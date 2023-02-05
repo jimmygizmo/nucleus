@@ -1,0 +1,79 @@
+The Nucleus Stack - React Web Application NPM Module Installations
+----------------------------------------------------------------------------------------------------------------------
+
+Install the following npm modules into the "nucleus" React application.
+(Directory: /nucleus/ inside the repository.)
+
+----------------------------------------------------------------------------------------------------------------------
+#### React web application core
+react, react-dom, react-router-dom, formik, yup
+
+----------------------------------------------------------------------------------------------------------------------
+#### React Material UI styling core and sidebar navigation
+@emotion/react, @emotion/styled, @mui/material, @mui/icons-material, react-pro-sidebar,
+
+----------------------------------------------------------------------------------------------------------------------
+#### FullCalendar
+fullcalendar, @fullcalendar/react, @fullcalendar/core, @fullcalendar/interaction, @fullcalendar/list
+@fullcalendar/daygrid, @fullcalendar/timegrid
+
+----------------------------------------------------------------------------------------------------------------------
+#### Material UI DataGrid and React Gauge Chart
+@mui/x-data-grid, react-gauge-chart
+
+----------------------------------------------------------------------------------------------------------------------
+#### Nivo Charts
+@nivo/core, @nivo/geo, @nivo/stream, @nivo/line, @nivo/bar, @nivo/pie
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+TODO: This file will take some work, so it will be in a rough, in-progress format for a while.
+
+----------------------------------------------------------------------------------------------------------------------
+TODO: Determine and document the exact purpose and details on these:
+react-scripts, web-vitals
+
+----------------------------------------------------------------------------------------------------------------------
+TODO: The following will not be installed until later (on hold):
+@testing-library/jest-dom, @testing-library/react, @testing-library/user-event
+
+----------------------------------------------------------------------------------------------------------------------
+This package.json excerpt is a reference list from an R&D version of Nucleus.
+The specific versions in this list have been ignored during the initial development of The Nucleus Stack
+so that all the latest versions will result. Also, there could be some dependency version/compatibility
+problems lingering and those might be artifacts from forcing an older version of something which we no
+longer care about (apollo client possibly) so it is time to let all these version update "naturally" to the
+most recent and compatible states.
+
+Key for annotating the below dependency list:  # = done, ? = more info needed, - = on hold
+#    "@emotion/react": "^11.10.5",
+#    "@emotion/styled": "^11.10.5",
+#    "@fullcalendar/core": "^5.11.3",
+#    "@fullcalendar/daygrid": "^5.11.3",
+#    "@fullcalendar/interaction": "^5.11.3",
+#    "@fullcalendar/list": "^5.11.3",
+#    "@fullcalendar/react": "^5.11.3",
+#    "@fullcalendar/timegrid": "^5.11.3",
+#    "@mui/icons-material": "^5.11.0",
+#    "@mui/material": "^5.11.3",
+#    "@mui/x-data-grid": "^5.17.18",
+#    "@nivo/bar": "^0.80.0",
+#    "@nivo/core": "^0.80.0",
+#    "@nivo/geo": "^0.80.0",
+#    "@nivo/line": "^0.80.0",
+#    "@nivo/pie": "^0.80.0",
+#    "@nivo/stream": "^0.80.0",
+-    "@testing-library/jest-dom": "^5.16.5",
+-    "@testing-library/react": "^13.4.0",
+-    "@testing-library/user-event": "^13.5.0",
+#    "formik": "^2.2.9",
+#    "fullcalendar": "^6.0.3",
+#    "react": "^18.2.0",
+#    "react-dom": "^18.2.0",
+#    "react-gauge-chart": "^0.4.1",
+#    "react-pro-sidebar": "^0.7.1",
+#    "react-router-dom": "^6.6.1",
+?    "react-scripts": "5.0.1",
+?    "web-vitals": "^2.1.4",
+#    "yup": "^0.32.11"
