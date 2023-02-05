@@ -1,0 +1,55 @@
+The Nucleus Stack - Apollo GraphQL API Server Node Module Installation Instructions
+----------------------------------------------------------------------------------------------------------------------
+
+TODO: Wipe and re-install everything for Apollo to make sure we have the latest and start from non-versioned. It is
+  possible that the lock file got used with the pinned versions on initial standup. No big deal. Apollo works great!
+
+TODO: This document is complete in information for the most part, but still under revision for wording and format.
+
+Install the following npm modules into the "apollo" server application.
+(Directory: /apollo/ inside the repository.)
+
+1. Change into the /apollo/ directory where package.json and package-lock.json are located.
+2. Run npm install <module>
+
+You can install one at a time or install sets for the categories all at once or as most people might want,
+install all of them.
+
+
+----------------------------------------------------------------------------------------------------------------------
+#### Apollo Server
+@apollo/server
+
+----------------------------------------------------------------------------------------------------------------------
+#### Mongoose ODM (Object-Data Modeling Library with MongoDB Drivers)
+* Provides schemas, models, MongoDB database connectivity and more to Apollo.
+mongoose
+
+----------------------------------------------------------------------------------------------------------------------
+#### GraphQL - Graph Query Language (GQL)
+graphql
+
+----------------------------------------------------------------------------------------------------------------------
+#### Dotenv Environment-Loading for Configuration
+dotenv
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------------
+This package.json excerpt is a reference list from an R&D version of Nucleus.
+The specific versions in this list have been ignored during the initial development of the released Nucleus Stack
+so that all the latest versions will result.
+
+Key for annotating the below dependency list:
+# = Accounted for in instructions.
+? = More info needed on this package.
+- = On hold but will likely be added to installation instructions soon.
+
+    "@apollo/server": "^4.3.1",
+    "dotenv": "^16.0.3",
+    "graphql": "^16.6.0",
+    "mongoose": "^6.8.4"
+
+----------------------------------------------------------------------------------------------------------------------
+

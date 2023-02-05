@@ -1,11 +1,11 @@
-The Nucleus Stack - React Web Application NPM Module Installations
+The Nucleus Stack - React Web Application Node Module Installation Instructions
 ----------------------------------------------------------------------------------------------------------------------
 
 Install the following npm modules into the "nucleus" React application.
 (Directory: /nucleus/ inside the repository.)
 
 ----------------------------------------------------------------------------------------------------------------------
-#### React web application core
+#### React Web Application Core
 react, react-dom, react-router-dom, formik, yup
 
 ----------------------------------------------------------------------------------------------------------------------
@@ -29,13 +29,17 @@ fullcalendar, @fullcalendar/react, @fullcalendar/core, @fullcalendar/interaction
 
 
 TODO: This file will take some work, so it will be in a rough, in-progress format for a while.
+At first, no testing or CRA libraries not essential to the actual app's operation will be included to keep things
+simple while finalizing aspects of the stack and its architecture.
+Testing, monitoring and other such features will be added soon. Lots of testing is already done as part of development,
+and we are not yet concerned about regression at this phase.
 
 ----------------------------------------------------------------------------------------------------------------------
-TODO: Determine and document the exact purpose and details on these:
+TODO: Determine the exact purpose and details on these: UPDATE: These come from create-react-app. See below.
 react-scripts, web-vitals
 
 ----------------------------------------------------------------------------------------------------------------------
-TODO: The following will not be installed until later (on hold):
+TODO: The following will not be installed until later (on hold): (UPDATE: Also from CRA. See below.)
 @testing-library/jest-dom, @testing-library/react, @testing-library/user-event
 
 ----------------------------------------------------------------------------------------------------------------------
@@ -46,7 +50,11 @@ problems lingering and those might be artifacts from forcing an older version of
 longer care about (apollo client possibly) so it is time to let all these version update "naturally" to the
 most recent and compatible states.
 
-Key for annotating the below dependency list:  # = done, ? = more info needed, - = on hold
+Key for annotating the below dependency list:
+# = Accounted for in instructions.
+? = More info needed on this package.
+- = On hold but will likely be added to installation instructions soon.
+
 #    "@emotion/react": "^11.10.5",
 #    "@emotion/styled": "^11.10.5",
 #    "@fullcalendar/core": "^5.11.3",
@@ -77,3 +85,17 @@ Key for annotating the below dependency list:  # = done, ? = more info needed, -
 ?    "react-scripts": "5.0.1",
 ?    "web-vitals": "^2.1.4",
 #    "yup": "^0.32.11"
+
+-----------------------------------
+CRA-created. The following are what you get from create-react-app:
+
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+
+----------------------------------------------------------------------------------------------------------------------
+
