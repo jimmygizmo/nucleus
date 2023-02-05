@@ -4,32 +4,51 @@ For mongosh info see: https://docs.mongodb.com/mongodb-shell/
 TODO: Add link to docker/docker-compose exec shell info
 
 --------
-1. Bring the stack up. MongoDb should stay up by Apollo and NIGINX might not stay up until we so a few steps
+1. Bring the stack up. MongoDb should stay up but Apollo will fail to come up because the user and db it will
+attempt to use do not exist yet. While docker compose still has the MongoDB "nucleus-mongo" container running,
+get the ID of the container by doing a docker-compose ps. Copy the ID of the running mongo container to use
+in the following steps.
+docker ps
+CONTAINER ID  IMAGE          COMMAND            CREATED      STATUS         PORTS                      NAMES
+98cda0c7f5df  nucleus-mongo  "docker-entry..."  3 hours ago  Up 49 seconds  0.0.0.0:44017->27017/tcp   nucleus-mongo
+* Copy the CONTAINER ID. In the example above it is: 98cda0c7f5df
+
+Apollo and NGINX might not stay up until we so a few steps
 with the DB. These are some of the only manual setup/config steps we need to make and it only needs to be done
 the first time a database is instantiated. Your database data files stay persisted across runs inside
 the /datavolume directory. But to get started we need to create the logical database, a user and a password.
 
 
 --------
-2. User docker-compose to get a bash shell inside the running mongo container.
+2. Use docker-compose (or plain docker if necessary) to get a bash shell inside the running mongo container.
 This assumes you have the stack or at least the mongo container running:
-docker-compose exec -it nucleus-mongo bash
+docker-compose exec -it <CONTAINER-ID-FROM-ABOVE> bash
+* If this does not work, and you get a warning that the container is not running,
+  try just doing "docker" instead of "docker-compose" in the command:
+docker exec -it <CONTAINER-ID-FROM-ABOVE> bash
+
+(The situation with docker-compose vs. "docker compose" vs. just "docker" is a little transitional at the moment,
+ since Docker Compose has become a docker plugin and is transitioning from being a standalone tool.
+ I'm not sure why the command behavior was a little inconsistent for me recently, but it must be because of this.)
 
 
 --------
-3. Launch the "mongosh" client which is available now in the mongo container bash shell:
+3. Once in bash, launch the "mongosh" client which is available now in the mongo container:
 mongosh
 
 
 --------
-3. "Use" what will be the new logical database.
-use nucleusdb
+4. "Use" what will be the new logical database. Initially your prompt will indicate the 'test' default db:
+
+test> use nucleusdb
+switched to db nucleusdb
+nucleusdb>
 
 We have not yet created anything yet though. We need to make a user for this new logical database to stick around.
 
 
 --------
-4. Create the admin user.
+5. Create the admin user.
 
 ** Yes we are storing these credentials here in the repository. These credentials
 only get used inside the docker compose internet network and the MongoDB port is never mapped outside of that
@@ -49,15 +68,21 @@ nucleusdb> db.createUser(
 ... })
 { ok: 1 }
 
+** Here is the command, so you can easily copy it:
+db.createUser({user: "nucleusdbuser", pwd: "nucleusdbpass", roles:[{role: "userAdminAnyDatabase" , db:"admin"}]})
+
+Success is indicated by:
+{ ok: 1 }
+
 
 --------
-5. Show the new user to verify:
+6. Show the new user to verify:
 
 nucleusdb> show users
 [
   {
     _id: 'nucleusdb.nucleusdbuser',
-    userId: new UUID("9ac92d2f-5ede-4df8-923d-06cf26f3a0c0"),
+    userId: new UUID("8ab92d2e-5ede-42f8-923d-16cd26f3a0c1"),
     user: 'nucleusdbuser',
     db: 'nucleusdb',
     roles: [ { role: 'userAdminAnyDatabase', db: 'admin' } ],
@@ -66,10 +91,7 @@ nucleusdb> show users
 ]
 nucleusdb>
 
-
---------
-6. The logical database should now persist because you created something on it (the admin user).
-Now if you "show dbs", you should see "nucleusdb" listed.
+* The logical database should now persist because you created something on it (the admin user).
 
 Because we are mapping the MongoDB data directory (/data/db inside the container) to a local directory
 of /dbvolume or a VM directory of /data/datavolume, our new logical database and our new user and any other
@@ -78,7 +100,7 @@ data we create, will be preserved across all stops and starts of the stack.
 --------
 
 * NOTE: Now Apollo will be able to start up and connect to this new database. What it will do immediately upon
-first connecting is it will create all the collections needed for your test/mock data and it will populate those
+first connecting is it will create all the collections needed for your test/mock data, and it will populate those
 collections.
 
 ** NOTE ALSO: Every time Apollo starts, it checks for the existence of the test/mock collections and if any which

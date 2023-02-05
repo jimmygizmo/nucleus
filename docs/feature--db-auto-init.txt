@@ -1,0 +1,23 @@
+When MongoDB comes up for the first time or after all of its data files have been deleted for example,
+it will be lacking a few things:
+1. The logical database "nucleusdb"
+2. The user "nucleusdbuser", with the correct password assigned.
+
+MongoDB will come up in your docker-compose stack just fine like this, but Apollo will attempt to connect and fail.
+
+We should implement a solution all within the MongoDB container or its Dockerfile or something
+hooked into the build near there.
+We need to do a check every time MongoDB starts and if the logical db is missing and/or the user is missing,
+those need to be created, just like we do so nicely within Apollo for mock/test and other data initialization.
+
+Here is what it looks like in the docker-compose logs when that failure scenario described above occurs:
+
+----------------------------------------------------------------------------------------------------------------------
+
+nucleus-mongo   | {"t":{"$date":"2023-02-05T04:51:20.667+00:00"},"s":"I",  "c":"ACCESS",   "id":20249,
+   "ctx":"conn3","msg":"Authentication failed","attr":{"mechanism":"SCRAM-SHA-1","speculative":false,
+   "principalName":"nucleusdbuser","authenticationDatabase":"nucleusdb","remote":"172.19.0.3:43184",
+...
+nucleus-apollo  | MongoServerError: Authentication failed.
+...
+
