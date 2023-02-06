@@ -1,0 +1,17 @@
+R&D Nucleus uses an older react-pro-sidebar, and it is needed to get on the current version, but there have
+been a lot of changes and with our light/dark feature it will take a little adaptation.
+
+About 60% of the web application is in place and ready to run, so I will be committing to the repo with the
+nearly running web app and while I had upgraded the sidebar, I am going to put that back to a lower version
+before I commit the app and just get things working as in the R&D Nucleus version.
+
+On a related note, the sidebar may have been "forced" back previously and this might have been the source of
+dependency conflicts (peer conflicts) that I have mentioned in some comments and which may be resolved when
+we just get the sidebar upgrade. This will need to be a small side project done soon.
+
+Current Sidebar:
+https://www.npmjs.com/package/react-pro-sidebar/v/1.0.0
+
+Sidebar older version used by R&D Nucleus version:
+https://www.npmjs.com/package/react-pro-sidebar/v/0.7.1
+

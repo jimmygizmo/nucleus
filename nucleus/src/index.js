@@ -1,20 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+import "./index.css";
 import App from "./App";
-// import reportWebVitals from "./reportWebVitals";
+import { ProSidebarProvider } from "react-pro-sidebar";
 
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ProSidebarProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ProSidebarProvider>
   </React.StrictMode>
 );
 
+// UPDATE: Yes, docs show I need some changes:
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
+// TODO: Adapting a new react-pro-sidebar version which has some changes and I found notes from a prior issue.
+//   The below might be needed. Also note: It was necessary to use "as" alias when importing "Sidebar" now since
+//   I was already naming the component "Sidebar". I might rename the component but this is a minor issue.
+//   I'm more concerned about: <ProSidebarProvider>
+// <ProSidebarProvider>
+//   <App />
+// </ProSidebarProvider>;
 

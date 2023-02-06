@@ -1,0 +1,50 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap");
+
+html,
+body,
+#root,
+.app,
+.content {
+    height: 100%;
+    width: 100%;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+.mainlogo {
+    font-family: "Racing Sans One", sans-serif;
+}
+
+
+.app {
+    display: flex;
+    position: relative;
+}
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+    background: #e0e0e0;
+}
+
+
+/* Scrollbar Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+
+/* Scrollbar Handle on Hover - Should be: -webkit-scrollbar-thumb:hover */
+/* Tutorial mistakenly says track not thumb but thumb is correct and matches comment in tut. */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
