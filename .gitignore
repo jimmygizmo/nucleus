@@ -1,7 +1,6 @@
 # .gitignore file for The Nucleus Stack
 
 
-
 # For the following handful of about files, we keep the directory and the about file in place,
 # but ignore everything else. It is the about file itself that causes git to store the directory.
 # Git will not store an empty directory by itself. All of the following directories we do want to
@@ -30,7 +29,11 @@ secrets/*
 nginx/certs/*
 !nginx/certs/about-nginx-certs.txt
 
+# React app build output: (lives at /nucleus/build/)
+**/build/
 
+
+# The Node container wass used by the Next.js variant of Nucleus in past R&D versions
 # /node/
 #node/*
 #!node/about-node.txt
@@ -182,9 +185,11 @@ dist
 .tern-port
 
 ############################
-# Below is the complete .gitignore file create by create-react-app and installed inside the web app directory
-# (/nucleus/) but I only want one .gitignore file at the moment, so the following entries should be analyzed and
-# then cleanly consolidated into this existing .gitignore file. Also, generally this file could use a lot of
+# Below are the remnants of the .gitignore file created by create-react-app and installed inside the web app directory
+# (/nucleus/) but I only want one .gitignore file at the moment, so the following entries are being analyzed and
+# then cleanly consolidated into this existing .gitignore file. About half of those entries have been addressed.
+
+# Also, generally this file could use a lot of
 # cleanup. It is a very important file in this project and most of thie .gitignore file is from the one which
 # GitHub gives you for Node and it has a lot of things in it we do not need.
 # TODO: Clean up and fully organize this project root .gitignore
@@ -199,17 +204,9 @@ dist
 # testing
 /coverage
 
-# production
-/build
-
 # misc
-.DS_Store
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 

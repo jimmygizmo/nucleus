@@ -10,7 +10,7 @@ react, react-dom, react-router-dom, formik, yup
 
 ----------------------------------------------------------------------------------------------------------------------
 #### React Material UI styling core and sidebar navigation
-@emotion/react, @emotion/styled, @mui/material, @mui/icons-material, react-pro-sidebar,
+@emotion/react, @emotion/styled, @mui/material, @mui/icons-material, react-pro-sidebar
 
 ----------------------------------------------------------------------------------------------------------------------
 #### FullCalendar
@@ -99,6 +99,67 @@ CRA-created. The following are what you get from create-react-app:
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
+
+----------------------------------------------------------------------------------------------------------------------
+
+After independent, versionless installs according to the instructions above, the following resulted:
+
+$ = Versions have changed since the R&D implementation shown above.
+: = Same version
+
+:    "@emotion/react": "^11.10.5",
+:    "@emotion/styled": "^11.10.5",
+$    "@fullcalendar/core": "^6.1.1",
+$    "@fullcalendar/daygrid": "^6.1.1",
+$    "@fullcalendar/interaction": "^6.1.1",
+$    "@fullcalendar/list": "^6.1.1",
+$    "@fullcalendar/react": "^6.1.2",
+$    "@fullcalendar/timegrid": "^6.1.1",
+:    "@mui/icons-material": "^5.11.0",
+$    "@mui/material": "^5.11.7",
+$    "@mui/x-data-grid": "^5.17.22",
+:    "@nivo/bar": "^0.80.0",
+:    "@nivo/core": "^0.80.0",
+:    "@nivo/geo": "^0.80.0",
+:    "@nivo/line": "^0.80.0",
+:    "@nivo/pie": "^0.80.0",
+:    "@nivo/stream": "^0.80.0",
+:    "@testing-library/jest-dom": "^5.16.5",
+:    "@testing-library/react": "^13.4.0",
+:    "@testing-library/user-event": "^13.5.0",
+:    "formik": "^2.2.9",
+$    "fullcalendar": "^6.1.1",
+:    "react": "^18.2.0",
+:    "react-dom": "^18.2.0",
+:    "react-gauge-chart": "^0.4.1",
+$    "react-pro-sidebar": "^1.0.0",
+$    "react-router-dom": "^6.8.0",
+:    "react-scripts": "5.0.1",
+:    "web-vitals": "^2.1.4",
+:    "yup": "^0.32.11"
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+After comparing the R&D module profile with the one we just got, I see the following have changed version:
+Taking note of these in case there are any issues, differences in appearance or functionality, etc.
+I can't recall if during early development I had to force any versions, but if I did, it will be in notes,
+so I will update this document as the version situation becomes more clear. When apps are in a good, stable state,
+I like to pin versions. For the moment I want to get all the latest versions in and then see what we have and how
+the app works. Now that we have all of our dependencies installed, the React application code will start getting
+added next.
+
+$    "@fullcalendar/core": "^6.1.1",
+$    "@fullcalendar/daygrid": "^6.1.1",
+$    "@fullcalendar/interaction": "^6.1.1",
+$    "@fullcalendar/list": "^6.1.1",
+$    "@fullcalendar/react": "^6.1.2",
+$    "@fullcalendar/timegrid": "^6.1.1",
+$    "@mui/material": "^5.11.7",
+$    "@mui/x-data-grid": "^5.17.22",
+$    "fullcalendar": "^6.1.1",
+$    "react-pro-sidebar": "^1.0.0",
+$    "react-router-dom": "^6.8.0",
 
 ----------------------------------------------------------------------------------------------------------------------
 

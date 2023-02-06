@@ -51,6 +51,8 @@ In 2009 overall production was severely impacted by the economic recession.
 In 2017 SUVs exceeded cars for the first time and has since.
 45 records.
 
+TODO: Update here with license/rights information.
+
 TREATMENT: Data was reformatted but not cleaned or altered as it comes from this source in good condition.
 
 
@@ -60,8 +62,6 @@ Electric Vehicles Available for Sale New, Eastern Europe (Poland), 2020.
 
 FILE:
 /apollo/initdata/dataVehiclesElectricEU.js
-
-
 
 https://www.kaggle.com/datasets/dhamur/cars-data
 Cars-Conventional engine and EVs
