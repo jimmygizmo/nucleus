@@ -55,6 +55,9 @@ Key for annotating the below dependency list:
 ? = More info needed on this package.
 - = On hold but will likely be added to installation instructions soon.
 
+* = Installed by create-react-app (but not used initially)
+** = Essentials installed by create-react-app
+
 #    "@emotion/react": "^11.10.5",
 #    "@emotion/styled": "^11.10.5",
 #    "@fullcalendar/core": "^5.11.3",
@@ -72,18 +75,18 @@ Key for annotating the below dependency list:
 #    "@nivo/line": "^0.80.0",
 #    "@nivo/pie": "^0.80.0",
 #    "@nivo/stream": "^0.80.0",
--    "@testing-library/jest-dom": "^5.16.5",
--    "@testing-library/react": "^13.4.0",
--    "@testing-library/user-event": "^13.5.0",
+#*    "@testing-library/jest-dom": "^5.16.5",
+#*    "@testing-library/react": "^13.4.0",
+#*    "@testing-library/user-event": "^13.5.0",
 #    "formik": "^2.2.9",
 #    "fullcalendar": "^6.0.3",
-#    "react": "^18.2.0",
-#    "react-dom": "^18.2.0",
+#**    "react": "^18.2.0",
+#**    "react-dom": "^18.2.0",
 #    "react-gauge-chart": "^0.4.1",
 #    "react-pro-sidebar": "^0.7.1",
 #    "react-router-dom": "^6.6.1",
-?    "react-scripts": "5.0.1",
-?    "web-vitals": "^2.1.4",
+#**    "react-scripts": "5.0.1",
+#*    "web-vitals": "^2.1.4",
 #    "yup": "^0.32.11"
 
 -----------------------------------
