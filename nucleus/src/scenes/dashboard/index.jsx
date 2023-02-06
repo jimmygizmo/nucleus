@@ -4,7 +4,7 @@ import { tokens } from "../../theme";
 import Header from "../../components/Header";
 // import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
-import { mockTransactions } from "../../data/mockData";
+import { mockTransactions } from "../../data/mockTransactions";
 // import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import OpenWithOutlinedIcon from '@mui/icons-material/OpenWithOutlined';
 // import EmailIcon from "@mui/icons-material/Email";
@@ -228,7 +228,7 @@ const SceneDashboard = () => {
               <Typography
                 variant="h4"
                 fontWeight="bold"
-                color={colors.greenAccent[500]}
+                color={colors.greenAccent[600]}
               >
                 1975 - 2019
               </Typography>
@@ -238,7 +238,7 @@ const SceneDashboard = () => {
               <IconButton component={Link} to="/stream">
                 <OpenWithOutlinedIcon
                   sx={{
-                    fontSize: "26px", color: colors.greenAccent[500]
+                    fontSize: "26px", color: colors.greenAccent[600]
                   }}
                 />
               </IconButton>
@@ -339,7 +339,7 @@ const SceneDashboard = () => {
           { mockTransactions.map(
             ( transaction, i ) => (
               <Box
-                key={`${transaction.txId}-${i}`}
+                key={`${transaction.transId}-${i}`}
                 display="flex"
                 justifyContent="space-between"
                 alignItem="center"
@@ -348,25 +348,25 @@ const SceneDashboard = () => {
               >
                 <Box>
                   <Typography
-                    color={colors.greenAccent[500]}
+                    color={colors.greenAccent[600]}
                     variant="h5"
                     fontWeight="600"
                   >
-                    {transaction.txId}
+                    {transaction.transId}
                   </Typography>
                   <Typography
                     color={colors.grey[100]}
                   >
-                    {transaction.user}
+                    {transaction.username}
                   </Typography>
                 </Box>
                 <Box color={colors.grey[100]}>{transaction.date}</Box>
                 <Box
-                  backgroundColor={colors.greenAccent[500]}
+                  backgroundColor={colors.greenAccent[700]}
                   p="5px 10px"
                   borderRadius="4px"
                 >
-                  ${transaction.cost}
+                  ${transaction.amount}
                 </Box>
               </Box>
             )

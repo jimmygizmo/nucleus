@@ -183,6 +183,10 @@ const SceneVehiclesElectric = () => {
         }
       );
   },[]);
+  // The useEffect should NOT have fetched data in the deps, nor should deps be missing from useEffect.
+  // It seems the only way to avoid constant re-calling of the fetch, is to have an empty array [] for deps.
+  // You must have an empty array [] for the useEffect second argument (deps). TODO: seek other solutions.
+
 
   if ( compData.loading ) return(
     <Alert severity="info">
