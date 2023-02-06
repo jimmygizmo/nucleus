@@ -56,13 +56,13 @@ RUN apk add net-tools
 COPY --from=NODE_BUILD /usr/app/build /usr/share/nginx/html/
 
 
-COPY ./nginx-autodash.conf /etc/nginx/nginx.conf
+COPY ./nginx-nucleus.conf /etc/nginx/nginx.conf
 # Note other (default) NGINX settings in the conf dir:
 # /etc/nginx/conf.d/default.conf
 
 # To try the feature to parse ENV vars into this template.
 # To do this we need to find the utility and run it before NGINX comes up. The article never covered that.
-#COPY ./nginx-autodash.conf.template /etc/nginx/template/
+#COPY ./nginx-nucleus.conf.template /etc/nginx/template/
 
 
 # Copy SSL/TLS certificates and dhparam files. The /ssl/ dir is created below as a side effect.

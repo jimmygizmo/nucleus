@@ -1,6 +1,13 @@
 The Nucleus Stack - React Web Application Node Module Installation Instructions
 ----------------------------------------------------------------------------------------------------------------------
 
+** IMPORTANT: Currently the below information is valid EXCEPT for the fact that you need a LOWER VERSION
+of react-pro-sidebar at the moment.
+FOR THE REACT-PRO-SIDEBAR INSTALL, DO THIS: npm i react-pro-sidebar@0.7.1
+TODO: Resolve this issue. Get on the latest version (1.0.0). Clean up notes on these special cases.
+  Clean up this doc where all the versions are discussed to keep the useful info, and note this issue as well and
+  remove the unnecessary version history info.
+
 Install the following npm modules into the "nucleus" React application.
 (Directory: /nucleus/ inside the repository.)
 
@@ -102,7 +109,9 @@ CRA-created. The following are what you get from create-react-app:
 
 ----------------------------------------------------------------------------------------------------------------------
 
-After independent, versionless installs according to the instructions above, the following resulted:
+After independent, versionless installations according to the instructions above, the following resulted:
+
+*** NOTE RECENT UPDATES AT TOP ABOUT react-pro-sidebar VERSION!
 
 $ = Versions have changed since the R&D implementation shown above.
 : = Same version
@@ -148,6 +157,8 @@ so I will update this document as the version situation becomes more clear. When
 I like to pin versions. For the moment I want to get all the latest versions in and then see what we have and how
 the app works. Now that we have all of our dependencies installed, the React application code will start getting
 added next.
+
+*** NOTE RECENT UPDATES AT TOP ABOUT react-pro-sidebar VERSION!
 
 $    "@fullcalendar/core": "^6.1.1",
 $    "@fullcalendar/daygrid": "^6.1.1",

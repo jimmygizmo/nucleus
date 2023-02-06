@@ -54,16 +54,16 @@ const Topbar = () => {
         <Typography
           fontSize="0.8rem"
         >
-          Welcome to my latest full-stack technology demo site!&nbsp;&nbsp; My name is Jim Mannix.&nbsp;&nbsp;
+          Welcome to The Nucleus Stack!&nbsp;&nbsp;
           <Link
-            // IMPORTANT!!! display="inline-flex" here is what got the icon to aline in the text line and not expand it!!!
+            // IMPORTANT!!! display="inline-flex" here is what got the icon to align in the text line and not expand it!!!
             display="inline-flex"
             component={RouterLink}
             fontWeight="bold"
             to="/faq"
             color={colors.greenAccent[300]}
           >
-            Learn about how I built this site
+            Learn more
 
             {/* Tried IconButton here but all it would add is hover and the alignment/spacing goes out of wack. */}
             <ForwardIcon

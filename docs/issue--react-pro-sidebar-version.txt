@@ -15,3 +15,51 @@ https://www.npmjs.com/package/react-pro-sidebar/v/1.0.0
 Sidebar older version used by R&D Nucleus version:
 https://www.npmjs.com/package/react-pro-sidebar/v/0.7.1
 
+----------------------------------------------------------------------------------------------------------------------
+
+This is the log of me performing the downgrade. NOTE THE PEER DEPENDENCY WARNINGS!
+
+➜  nucleus git:(main) ✗ npm uninstall react-pro-sidebar
+
+removed 2 packages, and audited 1658 packages in 11s
+
+244 packages are looking for funding
+  run `npm fund` for details
+
+24 high severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues possible (including breaking changes), run:
+  npm audit fix --force
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+➜  nucleus git:(main) ✗ npm i react-pro-sidebar@0.7.1
+npm WARN ERESOLVE overriding peer dependency
+npm WARN ERESOLVE overriding peer dependency
+
+added 4 packages, and audited 1662 packages in 4s
+
+244 packages are looking for funding
+  run `npm fund` for details
+
+24 high severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues possible (including breaking changes), run:
+  npm audit fix --force
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+➜  nucleus git:(main) ✗
+
+----------------------------------------------------------------------------------------------------------------------
+

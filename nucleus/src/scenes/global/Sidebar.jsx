@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Sidebar as ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-// import "react-pro-sidebar/dist/css/styles.css";
+import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
+import "react-pro-sidebar/dist/css/styles.css";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
@@ -10,14 +10,14 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 // import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import ElectricCarOutlinedIcon from '@mui/icons-material/ElectricCarOutlined';
 // import ArchitectureOutlinedIcon from '@mui/icons-material/ArchitectureOutlined';
-// import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-// import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-// import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
-// import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-// import PieChartOutlinedIcon from "@mui/icons-material/PieChartOutlined";
-// import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
+import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
+import PieChartOutlinedIcon from "@mui/icons-material/PieChartOutlined";
+import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 // import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-// import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 // import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
 import FactoryOutlinedIcon from '@mui/icons-material/FactoryOutlined';
 import SsidChartOutlinedIcon from '@mui/icons-material/SsidChartOutlined';
@@ -139,7 +139,7 @@ const Sidebar = () => {
                     alt="profile-user"
                     width="100px"
                     height="100px"
-                    src={`../../img/jg-adjusted-square.png`}
+                    src={`../../img/usergreen.svg`}
                     style={{
                       cursor: "pointer",
                       borderRadius: "50%",
@@ -160,11 +160,7 @@ const Sidebar = () => {
                   <Typography
                     variant="h5"
                     color={colors.greenAccent[400]}
-                  >React/JS Full Stack Developer</Typography>
-                  <Typography
-                    variant="h5"
-                    color={colors.greenAccent[400]}
-                  ><strong>+</strong> &nbsp;ML/DevOps/Python/Cloud</Typography>
+                  >Status: Online</Typography>
                 </Box>
               </Box>
             )
@@ -215,62 +211,62 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            {/*<Item*/}
-            {/*  title="Geography Chart"*/}
-            {/*  to="/geography"*/}
-            {/*  icon={<MapOutlinedIcon />}*/}
-            {/*  selected={selected}*/}
-            {/*  setSelected={setSelected}*/}
-            {/*/>*/}
-            {/*<Item*/}
-            {/*  title="Bar Chart"*/}
-            {/*  to="/bar"*/}
-            {/*  icon={<BarChartOutlinedIcon />}*/}
-            {/*  selected={selected}*/}
-            {/*  setSelected={setSelected}*/}
-            {/*/>*/}
-            {/*<Item*/}
-            {/*  title="Pie Chart"*/}
-            {/*  to="/pie"*/}
-            {/*  icon={<PieChartOutlinedIcon />}*/}
-            {/*  selected={selected}*/}
-            {/*  setSelected={setSelected}*/}
-            {/*/>*/}
-            {/*<Item*/}
-            {/*  title="Line Chart"*/}
-            {/*  to="/line"*/}
-            {/*  icon={<TimelineOutlinedIcon />}*/}
-            {/*  selected={selected}*/}
-            {/*  setSelected={setSelected}*/}
-            {/*/>*/}
-            {/*<Typography*/}
-            {/*  variant="h6"*/}
-            {/*  color={colors.grey[300]}*/}
-            {/*  sx={{ m: "15px 0 5px 20px", fontStyle: "italic"}}*/}
-            {/*>*/}
-            {/*  Admin*/}
-            {/*</Typography>*/}
-            {/*<Item*/}
-            {/*  title="Calendar"*/}
-            {/*  to="/calendar"*/}
-            {/*  icon={<CalendarTodayOutlinedIcon />}*/}
-            {/*  selected={selected}*/}
-            {/*  setSelected={setSelected}*/}
-            {/*/>*/}
-            {/*<Item*/}
-            {/*  title="Profile Form"*/}
-            {/*  to="/form"*/}
-            {/*  icon={<PersonOutlinedIcon />}*/}
-            {/*  selected={selected}*/}
-            {/*  setSelected={setSelected}*/}
-            {/*/>*/}
-            {/*<Item*/}
-            {/*  title="FAQ Page"*/}
-            {/*  to="/faq"*/}
-            {/*  icon={<HelpOutlinedIcon />}*/}
-            {/*  selected={selected}*/}
-            {/*  setSelected={setSelected}*/}
-            {/*/>*/}
+            <Item
+              title="Geography Chart"
+              to="/geography"
+              icon={<MapOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Bar Chart"
+              to="/bar"
+              icon={<BarChartOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Pie Chart"
+              to="/pie"
+              icon={<PieChartOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Line Chart"
+              to="/line"
+              icon={<TimelineOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px", fontStyle: "italic"}}
+            >
+              Admin
+            </Typography>
+            <Item
+              title="Calendar"
+              to="/calendar"
+              icon={<CalendarTodayOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Profile Form"
+              to="/form"
+              icon={<PersonOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="FAQ Page"
+              to="/faq"
+              icon={<HelpOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
             <Typography
               variant="h6"
               color={colors.grey[300]}

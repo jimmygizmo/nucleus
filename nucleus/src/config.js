@@ -15,14 +15,14 @@ console.log(process.env.NODE_ENV);
 // TODO: What are these next 3 lines trying to say?!
 // Dev server:      http://localhost:44000
 // STACK LOCAL:     https://localhost:44443/apollo
-// STACK DEPLOYED:  https://autodash.app/apollo
+// STACK DEPLOYED:  https://stackdemo.xyz/apollo
 
 // We need a runtime (browser-side) switch which can detect which mode our full stack is in.
 // The key difference is different docker-compose.yml files.
 // TODO: TEMPORARY COMPROMISE: WILL JUST USE DEV SERVER FOR NOW. STACK LOCAL WILL NOT WORK, BUT STACK DEPLOYED WILL.
 
 export const apolloUri = process.env.NODE_ENV ===
-"development" ? "http://localhost:44000" : "https://autodash.app/apollo";
+"development" ? "http://localhost:44000" : "https://stackdemo.xyz/apollo";
 
 // TODO: So the one we have not covered is STACK LOCAL: https://localhost:44443/apollo
 
