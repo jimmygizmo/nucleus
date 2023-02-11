@@ -373,7 +373,6 @@ const SceneOverview = () => {
           }
         </Box>
 
-
       </Box>{/* -- END GRID -- */}
     </Box>
   );

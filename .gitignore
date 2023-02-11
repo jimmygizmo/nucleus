@@ -6,7 +6,7 @@
 # Git will not store an empty directory by itself. All of the following directories we do want to
 # be kept in the repository, but we don't want any of their other contents to ever be added to the repo.
 # Some of those contents are sensitive and must not be added to any code repository and some of
-# those contents are build output, which must be kept from being polluting the repository accidentally.
+# those contents are build output, which must be kept from polluting the repository accidentally.
 
 # datavolume and dbvolume
 dbvolume/*

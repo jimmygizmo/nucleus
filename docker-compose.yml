@@ -4,12 +4,20 @@ networks:
   nucleus-network:
 
 volumes:
+  datavolume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./datavolume
   dbvolume:
     driver: local
     driver_opts:
       type: none
       o: bind
       device: ./dbvolume
+
+# TODO: Make datavolume consistent across all containers.
 
 services:
 
@@ -35,31 +43,21 @@ services:
 #   When working with cutting-edge technologies, never overlook the old tried and true os-level tools and methods
 #   as they remain incredibly powerful and are often under-utilized in the midst of a lot of of bleeding-edge tech.
 
+
   # ---- MONGO ----
   nucleus-mongo:
     container_name: nucleus-mongo
     build: ./mongo
-#    SETUP: To use a full repository URL image name, customize a URL like the one here:
-#    image: <YOUR-AWS-USER-ID-NUMBER>.dkr.ecr.us-west-2.amazonaws.com/<YOUR-AWS-REPO-NAME>:nucleus-mongo
     image: nucleus-mongo
     networks:
       - nucleus-network
     environment:
       - MONGODB_INITDB_ROOT_USERNAME="automongo"
       - MONGODB_INITDB_ROOT_PASSWORD="automongo"
-    #      - MONGODB_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo-root-pw
     ports:
       - "44017:27017"
     volumes:
       - dbvolume:/data/db
-    # CONSIDER FOR nucleus-mongo CONTAINER:
-    #    healthcheck:
-    #      test: echo 'db.runCommand("ping").ok' | mongo 10.10.10.60:27017/test --quiet
-    #      interval: 30s
-    #      timeout: 10s
-    #      retries: 3
-    # CONSIDER FOR ALL CONTAINERS:
-    #    restart: unless-stopped
 
 
   # ---- APOLLO ----
@@ -68,14 +66,9 @@ services:
     build: ./apollo
     depends_on:
       - nucleus-mongo
-    #    SETUP: To use a full repository URL image name, customize a URL like the one here:
-    #    image: <YOUR-AWS-USER-ID-NUMBER>.dkr.ecr.us-west-2.amazonaws.com/<YOUR-AWS-REPO-NAME>:nucleus-apollo
     image: nucleus-apollo
     networks:
       - nucleus-network
-    #    environment:
-    #      - EXAMPLE_ENV_VAR_BOOLEAN="TRUE"
-    #      - EXAMPLE_ENV_VAR_URL="https://localhost:44443"
     ports:
       - "44000:44000"
     # wait-for-it.sh must target the internal port number, not the external
@@ -88,4 +81,27 @@ services:
       "/usr/local/bin/node",
       "/app/src/index.js",
     ]
+
+
+###############################################################################
+
+# For production deployment on AWS:
+
+#    SETUP: To use a full repository URL image name, customize a URL like the one here:
+#    image: <YOUR-AWS-USER-ID-NUMBER>.dkr.ecr.us-west-2.amazonaws.com/<YOUR-AWS-REPO-NAME>:nucleus-mongo
+
+# CONSIDER FOR nucleus-mongo CONTAINER:
+#    healthcheck:
+#      test: echo 'db.runCommand("ping").ok' | mongo 10.10.10.60:27017/test --quiet
+#      interval: 30s
+#      timeout: 10s
+#      retries: 3
+#
+# ALSO, as a possible initial setup method for nucleus-mongo admin/root creds:
+#
+#    environment:
+#      - MONGODB_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo-root-pw
+#
+# CONSIDER FOR ALL CONTAINERS:
+#    restart: unless-stopped
 

@@ -374,7 +374,6 @@ const SceneDashboard = () => {
           }
         </Box>
 
-
       </Box>{/* -- END GRID -- */}
     </Box>
   );
