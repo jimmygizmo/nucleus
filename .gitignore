@@ -1,25 +1,23 @@
 # .gitignore file for The Nucleus Stack
 
-
-# For the following handful of about files, we keep the directory and the about file in place,
-# but ignore everything else. It is the about file itself that causes git to store the directory.
-# Git will not store an empty directory by itself. All of the following directories we do want to
-# be kept in the repository, but we don't want any of their other contents to ever be added to the repo.
-# Some of those contents are sensitive and must not be added to any code repository and some of
-# those contents are build output, which must be kept from polluting the repository accidentally.
+# In many of the following, we keep the about file there and ignore all else. (The same is done for .gitkeep files.)
 
 # datavolume and dbvolume
-dbvolume/*
-!dbvolume/about-dbvolume.txt
+# Git will not add anything inside this directory except the .gitkeep file which allows git to store an empty dir.
 datavolume/*
-!datavolume/about-datavolume.txt
+!datavolume/.gitkeep
+dbvolume/*
+!dbvolume/.gitkeep
 
 # /nginx/www/ target of combined /xwww/ content and /.next/ build output
 nginx/www/*
 !nginx/www/about-nginx-www.txt
-# /nginx/nodesrc the destination of the React build output copied by prep script. Builds at start of NGINX Dockerfile.
+
+# /nginx/nodesrc - The destination of the React build output copied by the build-prep script.
+# This builds at the start of NGINX Dockerfile.
+# Git will not add anything inside this directory except the .gitkeep file which allows git to store an empty dir.
 nginx/nodesrc/*
-!nginx/nodesrc/about-nodesrc.txt
+!nginx/nodesrc/.gitkeep
 
 # SSL:/TLS Certificates and Other Secrets
 secrets/*
