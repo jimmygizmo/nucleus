@@ -3,7 +3,6 @@ import { tokens } from "../../theme";
 import Header from "../../components/Header";
 // import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
-import { mockTransactions } from "../../data/mockTransactions";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 // import EmailIcon from "@mui/icons-material/Email";
 // import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
@@ -18,6 +17,7 @@ import GaugeChartSuper from "../../components/GaugeChartSuper";
 // import PieChart from "../../components/PieChart";  // TODO: Maybe use this in place of the large ProgressCircle
 import LineChart from "../../components/LineChart";
 import GeographyChart from "../../components/GeographyChart";
+import CustomList from "../../components/CustomList";
 
 
 const SceneOverview = () => {
@@ -313,65 +313,7 @@ const SceneOverview = () => {
         </Box>
 
         {/* -------- TRANSACTIONS -------- */}
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          overflow="auto"
-        >
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
-            color={colors.grey[100]}
-            p="15px"
-          >
-            <Typography
-              color={colors.grey[100]}
-              variant="h5"
-              fontWeight="600"
-            >
-              Recent Transactions
-            </Typography>
-          </Box>
-          { mockTransactions.map(
-            ( transaction, i ) => (
-              <Box
-                key={`${transaction.transId}-${i}`}
-                display="flex"
-                justifyContent="space-between"
-                alignItem="center"
-                borderBottom={`4px solid ${colors.primary[500]}`}
-                p="15px"
-              >
-                <Box>
-                  <Typography
-                    color={colors.greenAccent[600]}
-                    variant="h5"
-                    fontWeight="600"
-                  >
-                    {transaction.transId}
-                  </Typography>
-                  <Typography
-                    color={colors.grey[100]}
-                  >
-                    {transaction.username}
-                  </Typography>
-                </Box>
-                <Box color={colors.grey[100]}>{transaction.date}</Box>
-                <Box
-                  backgroundColor={colors.greenAccent[700]}
-                  p="5px 10px"
-                  borderRadius="4px"
-                >
-                  ${transaction.amount}
-                </Box>
-              </Box>
-            )
-          )
-          }
-        </Box>
+        <CustomList />
 
       </Box>{/* -- END GRID -- */}
     </Box>
