@@ -56,6 +56,7 @@ nginx/certs/*
 
 # Directory to briefly hold working files inside the project but not add them to git.
 # * Tell your IDE to exclude/ignore this directory to reduce indexing & inspection overhead.
+# In IntelliJ IDEs, this is called "Mark as Excluded".
 todo/
 
 

@@ -110,6 +110,7 @@ const Sidebar = () => {
                   {/* IMPORTANT: Custom Main Logo FONT requires 3 things: 1. Class .mainlogo added to global css. */}
                   {/* 2. Special sx tag and & operator in the containing Box - important!  3. className of mainlogo  */}
                   {/* in the actual Typography element. */}
+                  {/* TODO: MAKE A CUSTOM VARIANT INSTEAD - CORRECT METHOD - SEE SMARTMETAL*/}
                   <Typography
                     variant="h2"
                     color={colors.blueAccent[300]}

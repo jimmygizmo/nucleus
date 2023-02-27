@@ -39,6 +39,7 @@ COPY ./src/. /app/src/
 # /datavolume for general sharing
 RUN mkdir /app/datavolume
 # TODO: Fix this. It needs to be something that does not invalidate cache, but is still useful.
+# TODO: Is this file even being generated? I had trouble with the exact same step in flaskstack-python.
 RUN date > /app/datavolume/test-file-created-by-apollo-Dockerfile.txt
 
 

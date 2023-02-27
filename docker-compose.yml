@@ -18,6 +18,13 @@ volumes:
       device: ./dbvolume
 
 # TODO: Make datavolume consistent across all containers.
+#  TODO: Add datavolume support everywhere: here, in services AND in Dockerfiles AND filesystem etc.
+# We're going with .gitkeep now and probably not about files for these dirs.
+# Maybe just move the info into the .gitkeep files? naw. Fewer custom files is better. We can have docs for info.
+# Slightly less convenienent and informative, but its not worth it to maintain so many about files on so many projects.
+# Just zero byte .gitkeep files are nice and simple and pretty self-explanatory.
+# Besides, only total noobs don't know that git won't store empty directories.
+# We have to keep things slanted towards advanced users, but never stupidly complex.
 
 services:
 
