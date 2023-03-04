@@ -55,6 +55,7 @@ services:
   nucleus-mongo:
     container_name: nucleus-mongo
     build: ./mongo
+    # image: your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-mongo
     image: nucleus-mongo
     networks:
       - nucleus-network
@@ -73,6 +74,7 @@ services:
     build: ./apollo
     depends_on:
       - nucleus-mongo
+    # image: your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-apollo
     image: nucleus-apollo
     networks:
       - nucleus-network
@@ -95,7 +97,7 @@ services:
 # For production deployment on AWS:
 
 #    SETUP: To use a full repository URL image name, customize a URL like the one here:
-#    image: <YOUR-AWS-USER-ID-NUMBER>.dkr.ecr.us-west-2.amazonaws.com/<YOUR-AWS-REPO-NAME>:nucleus-mongo
+#    image: your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-mongo
 
 # CONSIDER FOR nucleus-mongo CONTAINER:
 #    healthcheck:

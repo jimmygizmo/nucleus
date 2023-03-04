@@ -12,5 +12,5 @@ echo
 echo "---->  ./auto/push-040-apollo--push-apollo.zsh"
 
 # Push the Apollo image: nucleus-apollo
-docker push 388277783555.dkr.ecr.us-west-2.amazonaws.com/atomonova-repo:nucleus-apollo
+docker push your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-apollo
 

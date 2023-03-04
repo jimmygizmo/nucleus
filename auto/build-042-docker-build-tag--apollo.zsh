@@ -9,7 +9,7 @@ date
 echo "################################"
 echo
 
-docker build -t 388277783555.dkr.ecr.us-west-2.amazonaws.com/atomonova-repo:nucleus-apollo apollo
+docker build -t your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-apollo apollo
 
 # From within /apollo/ you can run it with:
 # zsh ../auto/build-042-docker-build-tag--apollo.zsh .

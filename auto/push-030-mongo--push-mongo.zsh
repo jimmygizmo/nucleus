@@ -12,5 +12,5 @@ echo
 echo "---->  ./auto/push-030-mongo--push-mongo.zsh"
 
 # Push the MongoDB image: nucleus-mongo
-docker push 388277783555.dkr.ecr.us-west-2.amazonaws.com/atomonova-repo:nucleus-mongo
+docker push your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-mongo
 

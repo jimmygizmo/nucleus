@@ -66,16 +66,14 @@ COPY ./nginx-nucleus.conf /etc/nginx/nginx.conf
 
 
 # Copy SSL/TLS certificates and dhparam files. The /ssl/ dir is created below as a side effect.
-# TODO: Re-enable these steps when the files are available or use some placeholder files so the Dockerfile can run.
-#COPY /certs/stackdemo_xyz.crt /etc/nginx/ssl/
-#COPY /certs/stackdemo_xyz.key /etc/nginx/ssl/
-#COPY /certs/stackdemo_dhparam.pem /etc/nginx/ssl/
+COPY /certs/stackdemo_xyz.crt /etc/nginx/ssl/
+COPY /certs/stackdemo_xyz.key /etc/nginx/ssl/
+COPY /certs/nucleus_dhparam.pem /etc/nginx/ssl/
 
 
 # Copy web content
 # Contents of site build output (.next/? out/?) should be copied into /www/ prior to Docker build.
-# TODO: Possibly re-enable this to make use of /xwww/
-####COPY /www/ /usr/share/nginx/html/
+COPY /www/ /usr/share/nginx/html/
 
 
 # For docker-compose execution, 'mongodb' must be up and acceptiing connections before 'apollo' starts.

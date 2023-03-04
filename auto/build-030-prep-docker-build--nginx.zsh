@@ -60,7 +60,7 @@ cp -Rpv xwww/* nginx/www/
 
 printf "\n############################################################\n"
 printf "\nCOPYING SSL/TLS CERT & KEY INTO /NGINX/CERTS/ FOR DOCKER BUILD\n"
-cp -pv secrets/nucleus_app.crt nginx/certs/
-cp -pv secrets/nucleus_app.key nginx/certs/
+cp -pv secrets/stackdemo_xyz.crt nginx/certs/
+cp -pv secrets/stackdemo_xyz.key nginx/certs/
 cp -pv secrets/nucleus_dhparam.pem nginx/certs/
 

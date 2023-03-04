@@ -4,9 +4,9 @@
 CONFIRM ALL RUNNING:
 [ec2-user@ip-172-31-5-200 ~]$ docker ps
 CONTAINER ID   IMAGE                                                                         COMMAND                  CREATED        STATUS        PORTS                                                                      NAMES
-56c744bd8fb6   388277783555.dkr.ecr.us-west-2.amazonaws.com/atomonova-repo:nucleus-nginx    "/usr/share/nginx/wa…"   29 hours ago   Up 29 hours   0.0.0.0:80->80/tcp, :::80->80/tcp, 0.0.0.0:443->443/tcp, :::443->443/tcp   nucleus-nginx
-cc5657e1ad29   388277783555.dkr.ecr.us-west-2.amazonaws.com/atomonova-repo:nucleus-apollo   "docker-entrypoint.s…"   29 hours ago   Up 29 hours   4000/tcp                                                                   nucleus-apollo
-d6eaad483263   388277783555.dkr.ecr.us-west-2.amazonaws.com/atomonova-repo:nucleus-mongo    "docker-entrypoint.s…"   29 hours ago   Up 29 hours   27017/tcp                                                                  nucleus-mongo
+56c744bd8fb6   your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-nginx    "/usr/share/nginx/wa…"   29 hours ago   Up 29 hours   0.0.0.0:80->80/tcp, :::80->80/tcp, 0.0.0.0:443->443/tcp, :::443->443/tcp   nucleus-nginx
+cc5657e1ad29   your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-apollo   "docker-entrypoint.s…"   29 hours ago   Up 29 hours   4000/tcp                                                                   nucleus-apollo
+d6eaad483263   your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-mongo    "docker-entrypoint.s…"   29 hours ago   Up 29 hours   27017/tcp                                                                  nucleus-mongo
 
 
 ============================================================================================================

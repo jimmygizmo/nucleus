@@ -22,6 +22,8 @@ nginx/nodesrc/*
 # SSL:/TLS Certificates and Other Secrets
 secrets/*
 !secrets/about-secrets.txt
+!secrets/about-nucleus_dhparam_pem.txt
+!secrets/nucleus_dhparam.pem
 
 # SSL:/TLS Certificates - Build location
 nginx/certs/*

@@ -9,7 +9,7 @@ date
 echo "################################"
 echo
 
-docker build -t 388277783555.dkr.ecr.us-west-2.amazonaws.com/atomonova-repo:nucleus-mongo mongo
+docker build -t your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-mongo mongo
 
 # From within /mongo/ you can run it with:
 # zsh ../auto/build-038-docker-build-tag--mongo.zsh .
