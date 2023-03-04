@@ -20,9 +20,25 @@ console.log(process.env.NODE_ENV);
 // We need a runtime (browser-side) switch which can detect which mode our full stack is in.
 // The key difference is different docker-compose.yml files.
 // TODO: TEMPORARY COMPROMISE: WILL JUST USE DEV SERVER FOR NOW. STACK LOCAL WILL NOT WORK, BUT STACK DEPLOYED WILL.
+// *** UPDATE: By switching the code blocks below per the comments, you can also use the full stack with SSL,
+// but for now you will have to change the code before deployment.
+// ** THIS IS HORRIBLE, I KNOW .. I HAVE A GOOD SOLUTION COMING SOON.
+// TODO: PROBABLY WILL USE BABEL TRICK TO PARSE INTO CODE:
 
+
+/* **************************************************************************** */
+
+// USE THIS FOR PRODUCTION DEPLOYMENT:
+// export const apolloUri = process.env.NODE_ENV ===
+// "development" ? "http://localhost:44000" : "https://stackdemo.xyz/apollo";
+
+// USE THIS FOR LOCAL FULL STACK TESTING USING YOUR RUNNING COMPOSE STACK
 export const apolloUri = process.env.NODE_ENV ===
-"development" ? "http://localhost:44000" : "https://stackdemo.xyz/apollo";
+"development" ? "http://localhost:44000" : "https://localhost:44443/apollo";
+
+/* **************************************************************************** */
+
+
 
 // TODO: So the one we have not covered is STACK LOCAL: https://localhost:44443/apollo
 
