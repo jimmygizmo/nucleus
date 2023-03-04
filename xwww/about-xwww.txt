@@ -1,0 +1,15 @@
+# /xwww/about-xwww.txt
+
+# This /xwww/ directory at the project root holds files and web content which will be copied recursively in whole
+# into /nginx/www/ prior to the building of the nginx Docker container image.
+
+# TODO: There are many ways this feature can be useful. This file needs a few paragraphs about the different use cases.
+# Quick draft of needed instructions:
+#
+# NGINX can serve more than just your react app and any content inside /xwww/ will be served. /xwww/ contents are
+# intentionally copied AFTER the Node react build inside the NGINX Dockerfile. This is important. This means you
+# can intentionally overwrite some of the output of that build, although that might not be a huge need very often,
+# but you have control over the contents of /xwww/ and much less control over the Node build output.
+# Most importantly, if you are adding manual or other content to be served from the common NGINX /www/ dir,
+# just be careful you are not accidentally overwriting anything from the Node build of your React app.
+

@@ -1,0 +1,57 @@
+
+
+============================================================================================================
+CONFIRM ALL RUNNING:
+[ec2-user@ip-172-31-5-200 ~]$ docker ps
+CONTAINER ID   IMAGE                                                                         COMMAND                  CREATED        STATUS        PORTS                                                                      NAMES
+56c744bd8fb6   388277783555.dkr.ecr.us-west-2.amazonaws.com/atomonova-repo:nucleus-nginx    "/usr/share/nginx/wa…"   29 hours ago   Up 29 hours   0.0.0.0:80->80/tcp, :::80->80/tcp, 0.0.0.0:443->443/tcp, :::443->443/tcp   nucleus-nginx
+cc5657e1ad29   388277783555.dkr.ecr.us-west-2.amazonaws.com/atomonova-repo:nucleus-apollo   "docker-entrypoint.s…"   29 hours ago   Up 29 hours   4000/tcp                                                                   nucleus-apollo
+d6eaad483263   388277783555.dkr.ecr.us-west-2.amazonaws.com/atomonova-repo:nucleus-mongo    "docker-entrypoint.s…"   29 hours ago   Up 29 hours   27017/tcp                                                                  nucleus-mongo
+
+
+============================================================================================================
+SHELL INTO RUNNING MONGO CONTAINER:
+[ec2-user@ip-172-31-5-200 ~]$ docker-compose exec -it nucleus-mongo bash
+root@d6eaad483263:/usr/app# mongosh
+Current Mongosh Log ID:	63cf2d32a5d3a2971e9dfbb9
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.1
+Using MongoDB:		6.0.3
+Using Mongosh:		1.6.1
+etc...
+
+
+============================================================================================================
+SHOW DBS SHOWS NOTHING THERE:
+test> show dbs
+admin   40.00 KiB
+config  12.00 KiB
+local   72.00 KiB
+
+
+===========================================================================================================
+USE/CREATE PROTODB:
+test> use protodb
+switched to db protodb
+protodb>
+
+
+============================================================================================================
+CREATE AUTOMONGO USER AND PASS:
+protodb> db.createUser(
+{  user: "automongo",
+    pwd: "automongo",
+	roles:[{role: "userAdminAnyDatabase" , db:"admin"}]
+})
+
+PASTED IT SHOWS UP LIKE THIS WITH THE DOTS IN IT:
+protodb> db.createUser(
+... {  user: "automongo",
+...     pwd: "automongo",
+... 	roles:[{role: "userAdminAnyDatabase" , db:"admin"}]
+... })
+{ ok: 1 }
+
+
+============================================================================================================
+
+
