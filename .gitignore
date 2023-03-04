@@ -24,6 +24,8 @@ secrets/*
 !secrets/about-secrets.txt
 !secrets/about-nucleus_dhparam_pem.txt
 !secrets/nucleus_dhparam.pem
+!secrets/stackdemo_xyz.crt
+!secrets/stackdemo_xyz.key
 
 # SSL:/TLS Certificates - Build location
 nginx/certs/*

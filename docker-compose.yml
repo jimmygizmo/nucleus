@@ -55,8 +55,8 @@ services:
   nucleus-mongo:
     container_name: nucleus-mongo
     build: ./mongo
-    # image: your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-mongo
-    image: nucleus-mongo
+    image: your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-mongo
+    # image: nucleus-mongo
     networks:
       - nucleus-network
     environment:
@@ -74,8 +74,8 @@ services:
     build: ./apollo
     depends_on:
       - nucleus-mongo
-    # image: your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-apollo
-    image: nucleus-apollo
+    image: your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-apollo
+    # image: nucleus-apollo
     networks:
       - nucleus-network
     ports:
@@ -89,6 +89,32 @@ services:
       "--",
       "/usr/local/bin/node",
       "/app/src/index.js",
+    ]
+
+
+  # ---- NGINX ----
+  nucleus-nginx:
+    container_name: nucleus-nginx
+    build: ./nginx
+    depends_on:
+      - nucleus-apollo
+    image: your_aws_account_id_here.dkr.ecr.us-west-2.amazonaws.com/your_aws_repo_name_here:nucleus-nginx
+    # image: nucleus-nginx
+    networks:
+      - nucleus-network
+    #    environment:
+    #      - EXAMPLE_ENV_VAR_BOOLEAN="TRUE"
+    #      - EXAMPLE_ENV_VAR_URL="https://localhost:44443"
+    ports:
+      - "44480:80"
+      - "44443:443"
+    # wait-for-it.sh must target the internal port number, not the external
+    command: [
+      "/usr/share/nginx/wait-for-it.sh",
+      "--host=nucleus-apollo",
+      "--port=44000",
+      "--timeout=40",
+      "--", "/docker-entrypoint.sh", "nginx", "-g", "daemon off;",
     ]
 
 
