@@ -1,6 +1,6 @@
 # nucleus
 
-By Jim Mannix. &nbsp;&nbsp;&nbsp;Version 0.9.0, &nbsp;released 2023-02-02 &nbsp;&nbsp;&nbsp;[MIT LICENSE FILE](LICENSE.md)
+By Jim Mannix. &nbsp;&nbsp;&nbsp;Version 1.0.0 &nbsp;(2023-03-04) &nbsp;&nbsp;&nbsp;Launched: 2023-02-02 &nbsp;&nbsp;&nbsp;[MIT LICENSE FILE](LICENSE.md)
 
 
 
