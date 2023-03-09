@@ -26,6 +26,10 @@ In this way, The Nucleus Stack serves an important need, not only for people who
 > In the near future, the live demo of the current release will be running at the following URL:
 > 
 > https://stackdemo.xyz
+>
+> The below link is to a sandbox deployment I use for more experimental work and which lags slightly behind the current state of Nucleus, but is still very close to the current release. The frontend currently has a mixture of components following a dashboard and automotive data theme. Data sourced from Kaggle. Components are a mixuture of custom and MUI. AutoDash.app:
+> 
+> https://autodash.app
 
 ----
 
