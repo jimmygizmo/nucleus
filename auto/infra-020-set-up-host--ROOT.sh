@@ -16,8 +16,12 @@ printf "\n\n\n\n#### #### #### ####  INSTALL SERVICES  #### #### #### ####\n"
 printf "\n\n#### ####  Install Docker\n\n"
 
 
+# Enable Installation of Docker
+printf "\n#### ROOT ####  amazon-linux-extras enable docker\n"; amazon-linux-extras enable docker; printf "\n\n"
+
+
 # Install Docker
-printf "\n#### ROOT ####  amazon-linux-extras install docker\n"; amazon-linux-extras install docker; printf "\n\n"
+printf "\n#### ROOT ####  yum install -y docker\n"; yum install -y docker; printf "\n\n"
 
 
 # Add user 'ec2-user' to supplemental group 'docker'
@@ -43,32 +47,4 @@ printf "\n\n\n\n#### #### #### ####  ADDITIONAL SYSTEM SETUP  #### #### #### ###
 
 # TODO: Update this filename, if we even use this message:
 printf "\n#### ####  Now manually perform the steps documented in the file: ec2-setup-02-manual-finalization.txt\n"
-
-
-##
-#
-### OLD NOTES:
-# I don't have any lingering Docker issues and I think the following was addressing
-# an issue which had some unrelated (dumb) cause. So this is not relevant,
-# but I will not delete it completely yet. Have another look before deleting:
-
-# FOLLOWING: https://docs.aws.amazon.com/cli/v1/userguide/install-linux.html
-#printf "\n\n#### ####  Install newer AWS CLI\n"
-#printf "\n\n#### ####  First remove old AWS CLI\n"
-#
-## * All these require root/sudo.
-#printf "\n#### ####  (sudo) rm -rf /usr/local/aws\n"
-#rm -rf /usr/local/aws
-#printf "\n#### ####  (sudo) rm /usr/local/bin/aws\n"
-#rm /usr/local/bin/aws
-#printf "\n#### ####  (sudo) rm ~/.aws/\n"
-#rm ~/.aws/
-################################################################
-
-# From Docker troubleshooting related to the above and ultimately unrelated
-# to iptables. (But Docker is interesting in how it does use iptables!)
-# Look at iptables right after the Docker startup.
-# * Requires root/sudo.
-#printf "\n#### ####  iptables -nvL  -----  POST DOCKER STARTUP\n"
-#iptables -nvL
 
